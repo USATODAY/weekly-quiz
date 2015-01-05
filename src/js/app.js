@@ -1,1 +1,381 @@
-define(["jquery"],function(e){var r=r||{};return r.init=function(){var a=window!=window.parent;a&&($("body").addClass("iFrame"),$("#header").hide(),$(".mobile-footer-link").hide(),$(".article-button").hide()),r.objBody=e("body"),r.objQuizContainer=e(".quiz-container"),r.objData={},r.arrNumQuizQuestions=[],r.arrNumQuizCorrect=[],r.arrQuizDone=[],r.arrResultsText=[],r.arrResultsRange=[],r.arrResultsShare=[],r.arrShareTitles=[],r.arrGenericShares=[],r.currentQuiz=0,r.currentQuestion=0,r.blnAllDone=!1,r.objShareBox=e(".share-copy"),r.strBackgroundURL="",r.loadData(),window.setTimeout(function(){$(".preloader-mobile").eq(0).fadeOut(500)},1e3),window.addEventListener("orientationchange",function(){r.checkOrientation(),r.resizeImg()},!1),onresize=onload=function(){r.checkOrientation(),r.resizeImg()}},r.loadData=function(){e.ajax({url:"data/data.json",dataType:"json"}).done(function(e){r.objData=e,r.renderQuiz()})},r.renderQuiz=function(){var a="",t="",s=r.objData.length;a+='<div class="intro active">',r.numTotalQuizzes=r.objData.length;var n='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.7 70" enable-background="new 0 0 66.7 70" xml:space="preserve"> <path d="M24.8,70c-2.2,0-4.2-1-5.6-2.8L1.4,43.6c-2.3-3.1-1.7-7.4,1.3-9.8c3.1-2.3,7.4-1.7,9.8,1.3l11.8,15.5L53.8,3.3 c2-3.3,6.3-4.3,9.6-2.2c3.3,2,4.3,6.3,2.2,9.6L30.8,66.7c-1.2,1.9-3.3,3.2-5.6,3.3C25.1,70,24.9,70,24.8,70z"/></svg>',i='<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63.1 69.8" enable-background="new 0 0 63.1 69.8" xml:space="preserve"><path d="M60.7,56L42.2,34.9l18.5-21.1c3.1-3.1,3.1-8.2,0-11.4c-3.1-3.1-8.2-3.1-11.4,0L31.5,22.7L13.7,2.4c-3.1-3.1-8.2-3.1-11.4,0 c-3.1,3.1-3.1,8.2,0,11.4l18.5,21.1L2.4,56c-3.1,3.1-3.1,8.2,0,11.4c3.1,3.1,8.2,3.1,11.4,0l17.8-20.3l17.8,20.3 c3.1,3.1,8.2,3.1,11.4,0C63.9,64.3,63.9,59.2,60.7,56z"/></svg>';e.each(r.objData,function(o){a+='<div class="intro-panel" style="height: '+(100/s).toString()+'%;">',a+='    <div class="background"><div class="intro-background-overlay"></div><img src="'+r.objData[o].params[0].base_path+r.objData[o].params[0].background+'" /></div>',a+='    <div class="label">'+r.objData[o].params[0].label+"</div>",a+="</div>",t+='<div class="quiz '+r.objData[o].section+' upcoming">',t+='    <div class="quiz-intro active">',t+='        <div class="intro-image"><img src="'+r.objData[o].params[0].base_path+r.objData[o].questions[r.objData[o].questions.length-1].image+'" /></div>',t+='        <div class="intro-label">',t+="            <h2>"+r.objData[o].params[0].label+"</h2>",t+="        </div>",""!==r.objData[o].params[0].sponsor_photo&&(t+='        <div class="sponsor-image"><img src="'+r.objData[o].params[0].base_path+r.objData[o].params[0].sponsor_photo+'" /></div>'),""!==r.objData[o].params[0].sponsor_text&&(t+='        <div class="sponsor-text">'+r.objData[o].params[0].sponsor_text+"</div>"),t+="    </div>",r.arrNumQuizQuestions[o]=r.objData[o].questions.length,r.arrNumQuizCorrect[o]=0,r.arrQuizDone[o]=!1,r.arrShareTitles[o]=r.objData[o].params[0].title,r.arrGenericShares[o]=r.objData[o].params[0].generic_share,e.each(r.objData[o].questions,function(a){t+='    <div class="question-panel upcoming '+r.objData[o].questions[a].type+'">',t+='        <div class="question-content upcoming">',t+='            <div class="quiz-question-count">'+(a+1)+"/"+r.objData[o].questions.length+"</div>",t+='            <div class="quiz-share-button"><img src="'+r.objData[o].params[0].base_path+'options.svg" alt="share"></div>',t+='            <div class="question-text">'+r.objData[o].questions[a].value+"</div>",t+='            <div class="question-response"></div>',t+='            <div class="question-buttons">',e.each(r.objData[o].questions[a].answers,function(e){t+='            <div class="answer">',""!==r.objData[o].questions[a].answers[e].image&&(t+='                <div class="outer-image-wrap"><div class="image-wrap"><img src="'+r.objData[o].params[0].base_path+r.objData[o].questions[a].answers[e].image+'" /></div>'),t+="x"==r.objData[o].questions[a].answers[e].correct?'                <div class="answer-response-image correct">'+n+"</div>":'                <div class="answer-response-image wrong">'+i+"</div>",""!==r.objData[o].questions[a].answers[e].image&&(t+="            </div>"),t+='                <span class="answer-text">'+r.objData[o].questions[a].answers[e].answer+"</span>",t+="            </div>"}),t+="            </div>",t+="        </div>",t+='        <div class="question-image"><div class="img-overlay"></div><img src="'+r.objData[o].params[0].base_path+r.objData[o].questions[a].image+'" /></div>',t+="    </div>"}),t+='    <div class="results-panel upcoming">',t+='        <div class="quiz-share-button"><img src="'+r.objData[o].params[0].base_path+'options.svg" alt="share"></div>',t+='        <div class="results-text"></div>',t+='        <div class="next-button"><h4 class="next-text">Next Quiz</h4></div>',t+='        <div class="intro-button"><h4 class="next-text">Home</h4></div>',t+="    </div>",t+="</div>"}),a+="</div>",r.objQuizContainer.html(a+t),r.strBackgroundURL=r.objData[0].params[0].base_path+r.objData[0].params[0].start_back,r.checkOrientation(),r.setParams(),r.resizeImg()},r.setParams=function(){r.objMainIntro=e(".intro"),r.arrQuizzes=e(".quiz"),r.arrMainIntroPanels=e(".intro-panel"),r.arrQuizIntros=e(".quiz-intro"),r.arrQuizResults=e(".results-panel"),r.arrQuizNext=e(".next-button"),r.arrQuizHome=e(".intro-button"),r.arrQuizLabels=e(".label"),r.arrShareShowButtons=e(".quiz-share-button"),r.arrShareCloseButtons=e(".share-close-button"),r.arrSharePanel=e(".share-page"),r.arrShareButtons=r.arrSharePanel.find("a"),r.arrFullImgs=e(".question-image").add(".intro-image").find("img"),r.addEventListeners()},r.addEventListeners=function(){r.arrMainIntroPanels.click(function(){r.currentQuiz=r.arrMainIntroPanels.index(this),r.arrQuizDone[r.currentQuiz]||(r.currentQuestion=0,r.objMainIntro.removeClass("active").addClass("done"),r.arrQuizzes.eq(r.currentQuiz).removeClass("upcoming").addClass("active"),r.strBackgroundURL=r.objData[r.currentQuiz].params[0].base_path+r.objData[r.currentQuiz].background,r.checkOrientation(),Analytics.click("Intro panel quiz click"),setTimeout(r.startQuiz,2e3))}),r.arrQuizHome.click(function(){r.arrQuizzes.eq(r.currentQuiz).removeClass("active").addClass("done"),r.objMainIntro.removeClass("done").addClass("active"),r.blnAllDone&&(r.strBackgroundURL=r.objData[0].params[0].base_path+r.objData[0].params[0].start_back,Analytics.click("Show intro panel"),r.checkOrientation())}),r.arrQuizNext.click(function(){Analytics.click("Next quiz click"),r.nextQuiz()}),r.arrShareShowButtons.click(function(){r.arrSharePanel.eq(0).addClass("show"),r.objQuizContainer.addClass("blur"),Analytics.click("Show share panel")}),r.arrShareCloseButtons.click(function(){r.arrSharePanel.eq(0).removeClass("show"),r.objQuizContainer.removeClass("blur"),Analytics.click("Hide share panel")}),$(window).resize(function(){r.resizeImg(),r.checkOrientation()})},r.startQuiz=function(){var e,a,t=document.location.href;-1!=t.indexOf("#")&&(t=t.substr(0,t.indexOf("#"))),r.arrQuestions=r.arrQuizzes.eq(r.currentQuiz).find(".question-panel"),r.arrQuizIntros.eq(r.currentQuiz).removeClass("active").addClass("done"),r.objShareBox.html(r.arrGenericShares[r.currentQuiz]),e=r.arrShareTitles[r.currentQuiz],a=r.arrGenericShares[r.currentQuiz],r.arrShareButtons.eq(1).attr({href:"javascript: var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=215046668549694&link="+encodeURIComponent(t)+"&picture="+t.substr(0,t.lastIndexOf("/")+1)+"img/fb-post.jpg&name="+escape(encodeURIComponent(e)).replace("%27","\\'")+"&description="+escape(encodeURIComponent(a)).replace("%27","\\'")+"&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);Analytics.click('Facebook share');void(0);"}),r.arrShareButtons.eq(0).attr({href:"javascript: window.open('https://twitter.com/intent/tweet?url="+encodeURIComponent(t)+"&text="+escape(encodeURIComponent(e)).replace("%27","\\'")+": "+escape(encodeURIComponent(a)).replace("%27","\\'")+"&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');Analytics.click('Twitter share');void(0);"}),r.arrShareButtons.eq(2).attr({href:"mailto:?body="+r.arrGenericShares[r.currentQuiz]+" %0d%0d "+encodeURIComponent(t)+"&subject="+r.arrShareTitles[r.currentQuiz]}),r.nextQuestion()},r.nextQuestion=function(){r.currentQuestion<r.arrNumQuizQuestions[r.currentQuiz]?(r.arrQuestions.eq(r.currentQuestion).removeClass("upcoming").addClass("active"),r.objImagePanel=r.arrQuestions.eq(r.currentQuestion).find(".question-image"),r.objQuestionContent=r.arrQuestions.eq(r.currentQuestion).find(".question-content"),r.arrAnswers=r.arrQuestions.eq(r.currentQuestion).find(".answer"),r.objResponse=r.arrQuestions.eq(r.currentQuestion).find(".question-response"),e.each(r.objData[r.currentQuiz].questions[r.currentQuestion].answers,function(e){return""!==r.objData[r.currentQuiz].questions[r.currentQuestion].answers[e].correct?(r.correctAnswer=e,!1):void 0}),e.each(r.objData[r.currentQuiz].results,function(e){r.arrResultsText[e]=r.objData[r.currentQuiz].results[e].text,r.arrResultsRange[e]=parseInt(r.objData[r.currentQuiz].results[e].range),r.arrResultsShare[e]=r.objData[r.currentQuiz].results[e].share_text}),setTimeout(r.renderQuestion,2e3)):(r.objQuestionContent.removeClass("active").addClass("done"),r.renderResults()),0!==r.currentQuestion&&r.currentQuestion<r.arrNumQuizQuestions[r.currentQuiz]&&r.arrQuestions.eq(r.currentQuestion-1).removeClass("active").addClass("done")},r.renderQuestion=function(){r.objImagePanel.addClass("blur"),r.objQuestionContent.removeClass("upcoming").addClass("active"),r.arrAnswers.click(function(){r.renderAnswer(r.arrAnswers.index(this))})},r.renderAnswer=function(e){e!==r.correctAnswer?(r.objResponse.html("wrong!"),r.arrAnswers.eq(e).addClass("wrong").addClass("selected"),r.arrAnswers.eq(r.correctAnswer).addClass("correct")):(r.objResponse.html("correct!"),r.arrAnswers.eq(r.correctAnswer).addClass("correct").addClass("selected"),r.arrNumQuizCorrect[r.currentQuiz]=r.arrNumQuizCorrect[r.currentQuiz]+1),r.objResponse.addClass("show"),r.currentQuestion=r.currentQuestion+1,setTimeout(r.nextQuestion,2e3)},r.renderResults=function(){var a,t;e.each(r.arrResultsRange,function(e){return r.arrNumQuizCorrect[r.currentQuiz]<=r.arrResultsRange[e]?(a="<div class='results-text-inner-wrap'><h3 class='result-header'>You got "+r.arrNumQuizCorrect[r.currentQuiz].toString()+" out of "+r.arrNumQuizQuestions[r.currentQuiz].toString()+" correct!</h3> <p>"+r.arrResultsText[e]+"</p></div>",t="I got "+r.arrNumQuizCorrect[r.currentQuiz].toString()+" out of "+r.arrNumQuizQuestions[r.currentQuiz].toString()+" correct! "+r.arrResultsShare[e],!1):void 0});var s,n,i=document.location.href;-1!=i.indexOf("#")&&(i=i.substr(0,i.indexOf("#"))),s=r.arrShareTitles[r.currentQuiz],n=t,r.arrShareButtons.eq(1).attr({href:"javascript: var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=215046668549694&link="+encodeURIComponent(i)+"&picture="+i.substr(0,i.lastIndexOf("/")+1)+"img/fb-post.jpg&name="+escape(encodeURIComponent(s)).replace("%27","\\'")+"&description="+escape(encodeURIComponent(n)).replace("%27","\\'")+"&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);Analytics.click('Facebook share');void(0);"}),r.arrShareButtons.eq(0).attr({href:"javascript: window.open('https://twitter.com/intent/tweet?url="+encodeURIComponent(i)+"&text="+escape(encodeURIComponent(n)).replace("%27","\\'")+"&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');Analytics.click('Twitter share');void(0);"}),r.arrShareButtons.eq(2).attr({href:"mailto:?body="+t+" %0d%0d "+encodeURIComponent(i)+"&subject="+r.arrShareTitles[r.currentQuiz]}),r.arrQuizResults.eq(r.currentQuiz).find(".results-text").html(a),r.arrQuizLabels.eq(r.currentQuiz).parent().addClass("finished"),r.arrQuizLabels.eq(r.currentQuiz).removeClass("label").addClass("final-results-text").html(a),r.objShareBox.html(t),r.arrQuizResults.eq(r.currentQuiz).removeClass("upcoming").addClass("active"),r.arrQuizDone[r.currentQuiz]=!0,e.each(r.arrQuizDone,function(e){return r.arrQuizDone[e]?void(r.blnAllDone=!0):(r.numNextQuiz=e,r.blnAllDone=!1,!1)}),r.blnAllDone?r.arrQuizNext.eq(r.currentQuiz).html("<h4 class='next-text'>Final results</h4>"):r.arrQuizNext.eq(r.currentQuiz).addClass(r.objData[r.numNextQuiz].section)},r.nextQuiz=function(){r.arrQuizzes.eq(r.currentQuiz).removeClass("active").addClass("done"),r.blnAllDone?(r.objMainIntro.removeClass("done").addClass("active"),r.strBackgroundURL=r.objData[0].params[0].base_path+r.objData[0].params[0].start_back,r.checkOrientation()):(r.arrQuizzes.eq(r.numNextQuiz).removeClass("upcoming").addClass("active"),r.currentQuiz=r.numNextQuiz,r.strBackgroundURL=r.objData[r.currentQuiz].params[0].base_path+r.objData[r.currentQuiz].background,r.checkOrientation(),r.currentQuestion=0,setTimeout(r.startQuiz,2e3))},r.resizeImg=function(){var e=750/1334,a=r.objQuizContainer.width(),t=r.objQuizContainer.height(),s=a/t;s>e?r.arrFullImgs.addClass("wide").removeClass("tall"):r.arrFullImgs.addClass("tall").removeClass("wide")},r.checkOrientation=function(){var e=window.innerWidth,a=window.innerHeight;600>e&&600>a&&Modernizr.touch&&(e>a?r.objBody.addClass("landscape"):r.objBody.removeClass("landscape")),e>540&&r.objBody.css({background:"url("+r.strBackgroundURL+") no-repeat center center fixed"})},r});
+define(
+    [
+        'jquery',
+    ],
+    function(jQuery) {
+        var quiz = quiz || {};
+
+
+
+        quiz.init = function() {
+
+            var blnIframeEmbed = window != window.parent;
+
+            if (blnIframeEmbed) {
+                $("body").addClass("iFrame");
+                $("#header").hide();
+                $(".mobile-footer-link").hide();
+                $(".article-button").hide();
+            }
+            quiz.objBody = jQuery("body");
+            quiz.objQuizContainer = jQuery(".quiz-container");
+            quiz.objData = {};
+            quiz.arrNumQuizQuestions = [];
+            quiz.arrNumQuizCorrect = [];
+            quiz.arrQuizDone = [];
+            quiz.arrResultsText = [];
+            quiz.arrResultsRange = [];
+            quiz.arrResultsShare = [];
+            quiz.arrShareTitles = [];
+            quiz.arrGenericShares = [];
+            quiz.currentQuiz = 0;
+            quiz.currentQuestion = 0;
+            quiz.blnAllDone = false;
+            quiz.objShareBox = jQuery(".share-copy");
+            quiz.strBackgroundURL = "";
+            quiz.loadData();
+
+            window.setTimeout(function() {
+                $(".preloader-mobile").eq(0).fadeOut(500);
+            }, 1000);
+            window.addEventListener("orientationchange", function() {
+                quiz.checkOrientation();
+                quiz.resizeImg();
+            }, false);
+            onresize = onload = function() {
+                quiz.checkOrientation();
+                quiz.resizeImg();
+            };
+        };
+
+        quiz.loadData = function() {
+            jQuery.ajax({
+                "url": "data/data.json",
+                "dataType": "json"
+            }).done(function(data) {
+                quiz.objData = data;
+                quiz.renderQuiz();
+            });
+        };
+
+        quiz.renderQuiz = function() {
+            var i;
+            var strHTMLIntro = "";
+            var strHTMLQuizzes = "";
+            var intNumQuizzes = quiz.objData.length;
+            strHTMLIntro += '<div class="intro active">';
+            quiz.numTotalQuizzes = quiz.objData.length;
+
+            var strSVGCheck = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 66.7 70" enable-background="new 0 0 66.7 70" xml:space="preserve"> <path d="M24.8,70c-2.2,0-4.2-1-5.6-2.8L1.4,43.6c-2.3-3.1-1.7-7.4,1.3-9.8c3.1-2.3,7.4-1.7,9.8,1.3l11.8,15.5L53.8,3.3 c2-3.3,6.3-4.3,9.6-2.2c3.3,2,4.3,6.3,2.2,9.6L30.8,66.7c-1.2,1.9-3.3,3.2-5.6,3.3C25.1,70,24.9,70,24.8,70z"/></svg>';
+            var strSVGX = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63.1 69.8" enable-background="new 0 0 63.1 69.8" xml:space="preserve"><path d="M60.7,56L42.2,34.9l18.5-21.1c3.1-3.1,3.1-8.2,0-11.4c-3.1-3.1-8.2-3.1-11.4,0L31.5,22.7L13.7,2.4c-3.1-3.1-8.2-3.1-11.4,0 c-3.1,3.1-3.1,8.2,0,11.4l18.5,21.1L2.4,56c-3.1,3.1-3.1,8.2,0,11.4c3.1,3.1,8.2,3.1,11.4,0l17.8-20.3l17.8,20.3 c3.1,3.1,8.2,3.1,11.4,0C63.9,64.3,63.9,59.2,60.7,56z"/></svg>';
+
+            jQuery.each(quiz.objData, function(index) {
+                strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / intNumQuizzes).toString() + '%;">';
+                strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" /></div>';
+                strHTMLIntro += '    <div class="label">' + quiz.objData[index].params[0].label + '</div>';
+                strHTMLIntro += '</div>';
+
+                strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
+                strHTMLQuizzes += '    <div class="quiz-intro active">';
+                strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
+                strHTMLQuizzes += '        <div class="intro-label">';
+                strHTMLQuizzes += '            <h2>' + quiz.objData[index].params[0].label + '</h2>';
+                strHTMLQuizzes += '        </div>';
+                if (quiz.objData[index].params[0].sponsor_photo !== "") {
+                    strHTMLQuizzes += '        <div class="sponsor-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].sponsor_photo + '" /></div>';
+                }
+                if (quiz.objData[index].params[0].sponsor_text !== "") {
+                    strHTMLQuizzes += '        <div class="sponsor-text">' + quiz.objData[index].params[0].sponsor_text + '</div>';
+                }
+                strHTMLQuizzes += '    </div>';
+                quiz.arrNumQuizQuestions[index] = quiz.objData[index].questions.length;
+                quiz.arrNumQuizCorrect[index] = 0;
+                quiz.arrQuizDone[index] = false;
+                quiz.arrShareTitles[index] = quiz.objData[index].params[0].title;
+                quiz.arrGenericShares[index] = quiz.objData[index].params[0].generic_share;
+                jQuery.each(quiz.objData[index].questions, function(qindex) {
+                    strHTMLQuizzes += '    <div class="question-panel upcoming ' + quiz.objData[index].questions[qindex].type + '">';
+                    strHTMLQuizzes += '        <div class="question-content upcoming">';
+                    strHTMLQuizzes += '            <div class="quiz-question-count">' + (qindex + 1) + '/' + quiz.objData[index].questions.length + '</div>';
+                    strHTMLQuizzes += '            <div class="quiz-share-button"><img src="' + quiz.objData[index].params[0].base_path + 'options.svg" alt="share"></div>';
+                    strHTMLQuizzes += '            <div class="question-text">' + quiz.objData[index].questions[qindex].value + '</div>';
+                    strHTMLQuizzes += '            <div class="question-response"></div>';
+                    strHTMLQuizzes += '            <div class="question-buttons">';
+                    jQuery.each(quiz.objData[index].questions[qindex].answers, function(aindex) {
+                        strHTMLQuizzes += '            <div class="answer">';
+                        if (quiz.objData[index].questions[qindex].answers[aindex].image !== "") {
+                            strHTMLQuizzes += '                <div class="outer-image-wrap"><div class="image-wrap"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[qindex].answers[aindex].image + '" /></div>';
+                        }
+                        if (quiz.objData[index].questions[qindex].answers[aindex].correct == "x") {
+                            strHTMLQuizzes += '                <div class="answer-response-image correct">' + strSVGCheck + '</div>';
+                        } else {
+                            strHTMLQuizzes += '                <div class="answer-response-image wrong">' + strSVGX + '</div>';
+                        }
+                        if (quiz.objData[index].questions[qindex].answers[aindex].image !== "") {
+                            strHTMLQuizzes += '            </div>';
+                        }
+                        strHTMLQuizzes += '                <span class="answer-text">' + quiz.objData[index].questions[qindex].answers[aindex].answer + '</span>';
+                        strHTMLQuizzes += '            </div>';
+                    });
+                    strHTMLQuizzes += '            </div>';
+                    strHTMLQuizzes += '        </div>';
+                    strHTMLQuizzes += '        <div class="question-image"><div class="img-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[qindex].image + '" /></div>';
+                    strHTMLQuizzes += '    </div>';
+
+                });
+                strHTMLQuizzes += '    <div class="results-panel upcoming">';
+                strHTMLQuizzes += '        <div class="quiz-share-button"><img src="' + quiz.objData[index].params[0].base_path + 'options.svg" alt="share"></div>';
+                strHTMLQuizzes += '        <div class="results-text"></div>';
+                strHTMLQuizzes += '        <div class="next-button"><h4 class="next-text">Next Quiz</h4></div>';
+                strHTMLQuizzes += '        <div class="intro-button"><h4 class="next-text">Home</h4></div>';
+                strHTMLQuizzes += '    </div>';
+
+                strHTMLQuizzes += '</div>';
+            });
+            strHTMLIntro += '</div>';
+            quiz.objQuizContainer.html(strHTMLIntro + strHTMLQuizzes);
+
+            quiz.strBackgroundURL = quiz.objData[0].params[0].base_path + quiz.objData[0].params[0].start_back;
+            quiz.checkOrientation();
+
+            quiz.setParams();
+            quiz.resizeImg();
+        };
+
+        quiz.setParams = function() {
+            quiz.objMainIntro = jQuery(".intro");
+            quiz.arrQuizzes = jQuery(".quiz");
+            quiz.arrMainIntroPanels = jQuery(".intro-panel");
+            quiz.arrQuizIntros = jQuery(".quiz-intro");
+            quiz.arrQuizResults = jQuery(".results-panel");
+            quiz.arrQuizNext = jQuery(".next-button");
+            quiz.arrQuizHome = jQuery(".intro-button");
+            quiz.arrQuizLabels = jQuery(".label");
+            quiz.arrShareShowButtons = jQuery(".quiz-share-button");
+            quiz.arrShareCloseButtons = jQuery(".share-close-button");
+            quiz.arrSharePanel = jQuery(".share-page");
+            quiz.arrShareButtons = quiz.arrSharePanel.find("a");
+            quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").find("img");
+            quiz.addEventListeners();
+        };
+
+        quiz.addEventListeners = function() {
+            quiz.arrMainIntroPanels.click(function(e) {
+                quiz.currentQuiz = quiz.arrMainIntroPanels.index(this);
+                if (!quiz.arrQuizDone[quiz.currentQuiz]) {
+                    quiz.currentQuestion = 0;
+                    quiz.objMainIntro.removeClass("active").addClass("done");
+                    quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
+                    quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
+                    quiz.checkOrientation();
+                    Analytics.click('Intro panel quiz click');
+                    setTimeout(quiz.startQuiz, 2000);
+                }
+            });
+
+            quiz.arrQuizHome.click(function(e) {
+                quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("active").addClass("done");
+                quiz.objMainIntro.removeClass("done").addClass("active");
+                if (quiz.blnAllDone) {
+                    quiz.strBackgroundURL = quiz.objData[0].params[0].base_path + quiz.objData[0].params[0].start_back;
+                    Analytics.click('Show intro panel');
+                    quiz.checkOrientation();
+                }
+            });
+
+            quiz.arrQuizNext.click(function(e) {
+                Analytics.click('Next quiz click');
+                quiz.nextQuiz();
+            });
+
+
+            quiz.arrShareShowButtons.click(function(e) {
+                quiz.arrSharePanel.eq(0).addClass("show");
+                quiz.objQuizContainer.addClass("blur");
+                Analytics.click('Show share panel');
+            });
+
+            quiz.arrShareCloseButtons.click(function(e) {
+                quiz.arrSharePanel.eq(0).removeClass("show");
+                quiz.objQuizContainer.removeClass("blur");
+                Analytics.click('Hide share panel');
+            });
+
+            $(window).resize(function(e) {
+                quiz.resizeImg();
+                quiz.checkOrientation();
+            });
+        };
+
+        quiz.startQuiz = function() {
+            var strShareHead, strShareChatter;
+            var strPageURL = document.location.href;
+            if (strPageURL.indexOf("#") != -1) {
+                strPageURL = strPageURL.substr(0, strPageURL.indexOf("#"));
+            }
+            quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
+            quiz.arrQuizIntros.eq(quiz.currentQuiz).removeClass("active").addClass("done");
+            quiz.objShareBox.html(quiz.arrGenericShares[quiz.currentQuiz]);
+            strShareHead = quiz.arrShareTitles[quiz.currentQuiz];
+            strShareChatter = quiz.arrGenericShares[quiz.currentQuiz];
+            quiz.arrShareButtons.eq(1).attr({
+                "href": "javascript: var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=215046668549694&link=" + encodeURIComponent(strPageURL) + "&picture=" + strPageURL.substr(0, strPageURL.lastIndexOf("/") + 1) + "img/fb-post.jpg&name=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + "&description=" + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);Analytics.click('Facebook share');void(0);"
+            });
+            quiz.arrShareButtons.eq(0).attr({
+                "href": "javascript: window.open('https://twitter.com/intent/tweet?url=" + encodeURIComponent(strPageURL) + "&text=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + ": " + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');Analytics.click('Twitter share');void(0);"
+            });
+            quiz.arrShareButtons.eq(2).attr({
+                "href": "mailto:?body=" + quiz.arrGenericShares[quiz.currentQuiz] + " %0d%0d " + encodeURIComponent(strPageURL) + "&subject=" + quiz.arrShareTitles[quiz.currentQuiz]
+            });
+
+            quiz.nextQuestion();
+        };
+
+        quiz.nextQuestion = function() {
+            if (quiz.currentQuestion < quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
+                quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
+                quiz.objImagePanel = quiz.arrQuestions.eq(quiz.currentQuestion).find(".question-image");
+                quiz.objQuestionContent = quiz.arrQuestions.eq(quiz.currentQuestion).find(".question-content");
+                quiz.arrAnswers = quiz.arrQuestions.eq(quiz.currentQuestion).find(".answer");
+                quiz.objResponse = quiz.arrQuestions.eq(quiz.currentQuestion).find(".question-response");
+                jQuery.each(quiz.objData[quiz.currentQuiz].questions[quiz.currentQuestion].answers, function(aindex) {
+                    if (quiz.objData[quiz.currentQuiz].questions[quiz.currentQuestion].answers[aindex].correct !== "") {
+                        quiz.correctAnswer = aindex;
+                        return false;
+                    }
+                });
+                jQuery.each(quiz.objData[quiz.currentQuiz].results, function(rindex) {
+                    quiz.arrResultsText[rindex] = quiz.objData[quiz.currentQuiz].results[rindex].text;
+                    quiz.arrResultsRange[rindex] = parseInt(quiz.objData[quiz.currentQuiz].results[rindex].range);
+                    quiz.arrResultsShare[rindex] = quiz.objData[quiz.currentQuiz].results[rindex].share_text;
+                });
+                setTimeout(quiz.renderQuestion, 2000);
+            } else {
+                quiz.objQuestionContent.removeClass("active").addClass("done");
+                quiz.renderResults();
+            }
+            if ((quiz.currentQuestion !== 0) && (quiz.currentQuestion < quiz.arrNumQuizQuestions[quiz.currentQuiz])) {
+                quiz.arrQuestions.eq(quiz.currentQuestion - 1).removeClass("active").addClass("done");
+            }
+        };
+
+        quiz.renderQuestion = function() {
+            quiz.objImagePanel.addClass("blur");
+            quiz.objQuestionContent.removeClass("upcoming").addClass("active");
+            quiz.arrAnswers.click(function(e) {
+                quiz.renderAnswer(quiz.arrAnswers.index(this));
+            });
+        };
+
+        quiz.renderAnswer = function(intSelected) {
+            if (intSelected !== quiz.correctAnswer) {
+                quiz.objResponse.html("wrong!");
+                quiz.arrAnswers.eq(intSelected).addClass("wrong").addClass("selected");
+                quiz.arrAnswers.eq(quiz.correctAnswer).addClass("correct");
+
+            } else {
+                quiz.objResponse.html("correct!");
+                quiz.arrAnswers.eq(quiz.correctAnswer).addClass("correct").addClass("selected");
+                quiz.arrNumQuizCorrect[quiz.currentQuiz] = quiz.arrNumQuizCorrect[quiz.currentQuiz] + 1;
+            }
+            quiz.objResponse.addClass("show");
+            quiz.currentQuestion = quiz.currentQuestion + 1;
+            setTimeout(quiz.nextQuestion, 2000);
+        };
+
+        quiz.renderResults = function() {
+            var strResultsText, strShareText;
+            jQuery.each(quiz.arrResultsRange, function(rindex) {
+                if (quiz.arrNumQuizCorrect[quiz.currentQuiz] <= quiz.arrResultsRange[rindex]) {
+                    strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[rindex] + "</p></div>";
+                    strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[rindex];
+                    return false;
+                }
+            });
+
+            var strShareHead, strShareChatter;
+            var strPageURL = document.location.href;
+            if (strPageURL.indexOf("#") != -1) {
+                strPageURL = strPageURL.substr(0, strPageURL.indexOf("#"));
+            }
+            strShareHead = quiz.arrShareTitles[quiz.currentQuiz];
+            strShareChatter = strShareText;
+            quiz.arrShareButtons.eq(1).attr({
+                "href": "javascript: var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=215046668549694&link=" + encodeURIComponent(strPageURL) + "&picture=" + strPageURL.substr(0, strPageURL.lastIndexOf("/") + 1) + "img/fb-post.jpg&name=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + "&description=" + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);Analytics.click('Facebook share');void(0);"
+            });
+            quiz.arrShareButtons.eq(0).attr({
+                "href": "javascript: window.open('https://twitter.com/intent/tweet?url=" + encodeURIComponent(strPageURL) + "&text=" + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');Analytics.click('Twitter share');void(0);"
+            });
+            quiz.arrShareButtons.eq(2).attr({
+                "href": "mailto:?body=" + strShareText + " %0d%0d " + encodeURIComponent(strPageURL) + "&subject=" + quiz.arrShareTitles[quiz.currentQuiz]
+            });
+
+
+            quiz.arrQuizResults.eq(quiz.currentQuiz).find(".results-text").html(strResultsText);
+            quiz.arrQuizLabels.eq(quiz.currentQuiz).parent().addClass("finished");
+            quiz.arrQuizLabels.eq(quiz.currentQuiz).removeClass("label").addClass("final-results-text").html(strResultsText);
+            quiz.objShareBox.html(strShareText);
+            quiz.arrQuizResults.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
+            quiz.arrQuizDone[quiz.currentQuiz] = true;
+            jQuery.each(quiz.arrQuizDone, function(findex) {
+                if (!quiz.arrQuizDone[findex]) {
+                    quiz.numNextQuiz = findex;
+                    quiz.blnAllDone = false;
+                    return false;
+                } else {
+                    quiz.blnAllDone = true;
+                }
+            });
+            if (quiz.blnAllDone) {
+                quiz.arrQuizNext.eq(quiz.currentQuiz).html("<h4 class='next-text'>Final results</h4>");
+            } else {
+                quiz.arrQuizNext.eq(quiz.currentQuiz).addClass(quiz.objData[quiz.numNextQuiz].section);
+            }
+        };
+
+        quiz.nextQuiz = function() {
+            quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("active").addClass("done");
+            if (!quiz.blnAllDone) {
+                quiz.arrQuizzes.eq(quiz.numNextQuiz).removeClass("upcoming").addClass("active");
+                quiz.currentQuiz = quiz.numNextQuiz;
+                quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
+                quiz.checkOrientation();
+                quiz.currentQuestion = 0;
+                setTimeout(quiz.startQuiz, 2000);
+            } else {
+                quiz.objMainIntro.removeClass("done").addClass("active");
+                quiz.strBackgroundURL = quiz.objData[0].params[0].base_path + quiz.objData[0].params[0].start_back;
+                quiz.checkOrientation();
+            }
+        };
+
+        quiz.resizeImg = function() {
+            var natRatio = 750 / 1334;
+            var contWidth = quiz.objQuizContainer.width();
+            var contHeight = quiz.objQuizContainer.height();
+            var actualRatio = contWidth / contHeight;
+            if (actualRatio > natRatio) {
+                quiz.arrFullImgs.addClass("wide").removeClass("tall");
+            } else {
+                quiz.arrFullImgs.addClass("tall").removeClass("wide");
+            }
+        };
+
+        quiz.checkOrientation = function() {
+            var winWidth = window.innerWidth;
+            var winHeight = window.innerHeight;
+            if (winWidth < 600 && winHeight < 600 && Modernizr.touch) {
+                if (winWidth > winHeight) {
+                    quiz.objBody.addClass("landscape");
+                } else {
+                    quiz.objBody.removeClass("landscape");
+                }
+            }
+            if (winWidth > 540) {
+                quiz.objBody.css({
+                    'background': 'url(' + quiz.strBackgroundURL + ') no-repeat center center fixed'
+                });
+            }
+        };
+        return quiz;
+    });
