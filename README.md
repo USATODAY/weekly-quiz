@@ -3,8 +3,7 @@
 Weekly News Quiz
 
 
-Copyright (c) 2014 USA TODAY 
-
+Copyright 2015 USA TODAY. All rights reserved. No part of these materials may be reproduced, modified, stored in a retrieval system, or retransmitted, in any form or by any means, electronic, mechanical or otherwise, without prior written permission from USA TODAY.
 ##Development
 
 The requirements for this project are Node.js, Bower and Grunt. 
@@ -22,5 +21,10 @@ and install Bower with
 Once those dependencies are set up, from this repository run `npm install`, then run `bower install`, then run `grunt`
 
 
-###Live version:
-http://www.gannett-cdn.com/experiments/usatoday/2015/1/weekly-quiz/
+##Deployment
+
+This project assumes you want to deploy to the Gannett-CDN in part and will be publishing via Static-O-Matic. When you're ready to deploy, run `grunt deploy`. This assumes you have USA TODAY's FTP credentials stored on your machine. 
+
+##Assetts
+
+Images, videos, and other assetts should be stored outside this repo on the CDN. Please use absolute URLs for all linked assetts. This will aid in the publishing process.
