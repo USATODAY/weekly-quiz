@@ -23,7 +23,7 @@ Once those dependencies are set up, from this repository run `npm install`, then
 
 ##Deployment
 
-This project assumes you want to deploy to the Gannett-CDN in part and will be publishing via Static-O-Matic. When you're ready to deploy, run `npm deploy`. This assumes you have USA TODAY's FTP credentials stored on your machine. 
+This project assumes you want to deploy to the Gannett-CDN in part and will be publishing via Static-O-Matic. When you're ready to deploy, run `grunt deploy`. This assumes you have USA TODAY's FTP credentials stored on your machine. 
 
 ##Assetts
 
