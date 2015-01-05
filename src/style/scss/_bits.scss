@@ -1,0 +1,100 @@
+/************
+
+Colors
+
+************/
+
+$dark-blue: #1974B2;
+$blue: rgb(27, 136, 250);
+$dark-grey: #231F20;
+$medium-grey: #6D6E70;
+$light-grey: #8D8F91;
+$extra-light-grey: #E6E6E6;
+$orange: rgb(247, 79, 27);
+$green: rgb(29, 156, 52);
+$red: rgb(222, 6, 21);
+$purple: rgb(138, 0, 173);
+$teal: #1fc0bf;
+
+
+/************
+
+BG Colors
+
+************/
+
+@mixin life-bg($opacity) {
+    background-color: rgba(138, 0, 173, $opacity);
+}
+
+@mixin news-bg($opacity) {
+    background-color: rgba(27, 136, 250, $opacity);
+}
+
+@mixin money-bg($opacity) {
+    background-color: rgba(29, 156, 52, $opacity);
+}
+
+@mixin sports-bg($opacity) {
+    background-color: rgba(222, 6, 21, $opacity);
+}
+
+@mixin tech-bg($opacity) {
+    background-color: rgba(247, 79, 27, $opacity);
+}
+
+
+@mixin question-border($color) {
+    .question-text {
+        border-left: solid 8px $color;
+    }
+}
+
+
+@keyframes fade-in {
+  from  { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/************
+
+Shadow
+
+************/
+
+$shadow-standard: 0px 0px 15px rgba(0, 0, 0, 0.15);
+$shadow-big: 0px 0px 30px rgba(0, 0, 0, 0.80);
+
+/************
+
+Fonts
+
+************/
+
+@font-face {
+    font-family: 'Futura Today Normal';
+    src: url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_normal.eot);
+    src: url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_normal.eot?#iefix) format('embedded-opentype'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_normal.ttf) format('truetype'), url(http://www.usatoday30.usatoday.com/_common/_fonts/futura_bold-webfont.svg#FuturaBold) format('svg');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Today Light';
+    src: url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_light.eot);
+    src: url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_light.eot?#iefix) format('embedded-opentype'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_light.woff) format('woff'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_light.ttf) format('truetype'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_light-webfont.svg#FuturaLight) format('svg');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Today DemiBold';
+    src: url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_demibold.eot);
+    src: url(http://wusatoday30.usatoday.com/_common/_fonts/futura_today_demibold.eot?#iefix) format('embedded-opentype'), url(http://usatoday30.usatoday.com/_fonts/futura_today_demibold.woff) format('woff'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_demibold.ttf) format('truetype'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_bold-webfont.svg#FuturaDemiBold) format('svg');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Futura Today Bold';
+    src: url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_bold.eot);
+    src: url(usatoday30.usatoday.com/_fonts/futura_today_bold.eot?#iefix) format('embedded-opentype'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_bold.woff) format('woff'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_today_bold.ttf) format('truetype'), url(http://usatoday30.usatoday.com/_common/_fonts/futura_bold-webfont.svg#FuturaBold) format('svg');
+    font-style: normal;
+}

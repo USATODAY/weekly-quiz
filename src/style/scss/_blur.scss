@@ -1,0 +1,14 @@
+.blur {
+  transition: all 250ms ease;
+  filter: url(../img/blur.svg#blur);
+  filter: blur(6px);
+
+}
+
+.medium-blur {
+  filter: blur(5px);
+}
+
+.small-blur {
+  filter: blur(3px)
+}
