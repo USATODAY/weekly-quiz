@@ -336,7 +336,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
 
-  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy', 'browserSync', 'watch']);
-  grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy'])
+  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'browserSync', 'watch']);
+  grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy:main'])
   grunt.registerTask('deploy', ['build', 'ftp:upload1', 'ftp:upload2', 'ftp:upload3', 'clean:deploy']);
 };
