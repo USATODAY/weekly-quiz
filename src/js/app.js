@@ -49,13 +49,17 @@ define(
         };
 
         quiz.loadData = function() {
-            jQuery.ajax({
-                "url": "data/data.json",
-                "dataType": "json"
-            }).done(function(data) {
-                quiz.objData = data;
-                quiz.renderQuiz();
-            });
+            if (window.location.hostname == "www.usatoday.com") {
+                jQuery.getJSON("http://www.usatoday.com/services/webproxy/?url=" + window.data_url, function(data) {
+                    quiz.objData = data;
+                    quiz.renderQuiz();
+                });
+            } else {
+                jQuery.getJSON('data/data.json', function(data) {
+                    quiz.objData = data;
+                    quiz.renderQuiz();
+                });
+            }
         };
 
         quiz.renderQuiz = function() {
