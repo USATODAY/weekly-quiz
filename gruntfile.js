@@ -91,7 +91,7 @@ module.exports = function(grunt) {
       },
       data: {
         files: ['<%=config.src%>data/**/*.json'],
-        tasks: ['copy']
+        tasks: ['copy:main']
       },
       test: {
         files: ['js/spec/*.js'],
