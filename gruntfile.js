@@ -260,6 +260,31 @@ module.exports = function(grunt) {
           }
 
         ]
+      },
+      deploy: {
+        files : [
+          {
+            expand: true,
+            cwd: '<%=config.build%>',
+            src: ['data/*.json'],
+            dest: '',
+            filter: 'isFile'
+          },
+          {
+            expand: true,
+            cwd: '<%=config.build%>',
+            src: ['js/main.js'],
+            dest: '',
+            filter: 'isFile'
+          },
+          {
+            expand: true,
+            cwd: '<%=config.build%>',
+            src: ['style/project.css'],
+            dest: '',
+            filter: 'isFile'
+          }
+        ]
       }
     },
 
@@ -269,15 +294,30 @@ module.exports = function(grunt) {
         user: secrets.akamai_1.user,
         pass: secrets.akamai_1.pass
       },
-      upload: {
+      upload1: {
         files: {
-          '/17200/experiments/usatoday/2015/1/weekly-quiz//': '<%=config.build%>style/*',
-          '/17200/experiments/usatoday/2015/1/weekly-quiz/': '<%=config.build%>js/main.js'
+          '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'js/*',
+          // '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'data/*.json'
+        }
+      },
+      upload2: {
+        files: {
+          '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'style/project.css'
+          // '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'data/*.json'
+        }
+      },
+      upload3: {
+        files: {
+
+          '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'data/*.json'
         }
       }
     },
 
-    clean: ["cwd: '<%=config.build%>',"]
+    clean: {
+      dev: ['<%=config.build%>'],
+      deploy:  ['js', 'style', 'data']
+    }
 
   });
 
@@ -296,7 +336,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
 
-  grunt.registerTask('default', ['clean', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy', 'browserSync', 'watch']);
-  grunt.registerTask('build', ['clean', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy'])
-  grunt.registerTask('deploy', ['build', 'ftp']);
+  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy', 'browserSync', 'watch']);
+  grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy'])
+  grunt.registerTask('deploy', ['build', 'ftp:upload1', 'ftp:upload2', 'ftp:upload3', 'clean:deploy']);
 };
