@@ -27,4 +27,4 @@ This project assumes you want to deploy to the Gannett-CDN in part and will be p
 
 ##Assetts
 
-Images, videos, and other assetts should be stored outside this repo on the CDN. Please use absolute URLs for all linked assetts.
+Images, videos, and other assetts should be stored outside this repo on the CDN. Please use absolute URLs for all linked assetts. This will aid in the publishing process.
