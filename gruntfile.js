@@ -297,7 +297,7 @@ module.exports = function(grunt) {
       },
       upload1: {
         files: {
-          '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'js/*',
+          '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'js/main.js'
           // '/17200/experiments/usatoday/2015/1/weekly-quiz/': 'data/*.json'
         }
       },
@@ -340,5 +340,5 @@ module.exports = function(grunt) {
 
   grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'clean:tmp', 'browserSync', 'watch']);
   grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy:main'])
-  grunt.registerTask('deploy', ['build', 'ftp:upload1', 'ftp:upload2', 'ftp:upload3', 'clean:deploy']);
+  grunt.registerTask('deploy', ['build', 'copy:deploy', 'ftp:upload1', 'ftp:upload2', 'ftp:upload3', 'clean:deploy']);
 };
