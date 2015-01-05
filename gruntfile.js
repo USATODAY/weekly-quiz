@@ -316,6 +316,7 @@ module.exports = function(grunt) {
 
     clean: {
       dev: ['<%=config.build%>'],
+      tmp: ['<%=config.tmp%>'],
       deploy:  ['js', 'style', 'data']
     }
 
@@ -336,7 +337,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
 
-  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'clean:tmp', 'browserSync', 'watch']);
   grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy:main'])
   grunt.registerTask('deploy', ['build', 'ftp:upload1', 'ftp:upload2', 'ftp:upload3', 'clean:deploy']);
 };
