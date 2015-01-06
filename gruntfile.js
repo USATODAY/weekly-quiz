@@ -99,11 +99,11 @@ module.exports = function(grunt) {
       },
       html: {
         files: ['<%=config.src%>*.html'],
-        tasks: ['copy']
+        tasks: ['copy:main']
       },
       img: {
         files: ['<%=config.src%>img/*'],
-        taks: ['copy']
+        taks: ['copy:main']
       },
       options: {
         livereload: true,
