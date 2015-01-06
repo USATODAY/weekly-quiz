@@ -8,6 +8,8 @@
   width: 100%;
 }
 
+
+
 .done {
   transform: translate(0, -100%);
 }
@@ -20,7 +22,7 @@
   transform: translate(0, 0);
 }
 
-.intro, .quiz, .quiz-intro, .question-panel, .question-image, .results-panel, .results {
+.intro, .quiz, .quiz-intro, .question-panel, .question-image, .results-panel, .results  {
   @include panel();
 }
 

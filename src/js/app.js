@@ -17,7 +17,7 @@ define(
                 $(".mobile-footer-link").hide();
                 $(".article-button").hide();
             }
-            quiz.objBody = jQuery("body");
+            quiz.objBody = jQuery(".assett");
             quiz.objQuizContainer = jQuery(".quiz-container");
             quiz.objData = {};
             quiz.arrNumQuizQuestions = [];
