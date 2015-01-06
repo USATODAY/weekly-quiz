@@ -4,9 +4,8 @@ define(
         'analytics'
     ],
     function(jQuery, Analytics) {
+
         var quiz = quiz || {};
-
-
 
         quiz.init = function() {
 
@@ -49,11 +48,21 @@ define(
             };
         };
 
+        quiz.getParameterByName = function(name) {
+            var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+            return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+        };
+
         quiz.loadData = function() {
             var hostname = window.location.hostname;
+            var strURL = window.data_url;
+            if (quiz.getParameterByName("week")) {
+                strURL = strURL.replace("/data.json", "/data-week" + quiz.getParameterByName("week") + ".json");
+            }
+            console.log(strURL);
             if (hostname != "localhost") {
 
-                jQuery.getJSON("http://" + hostname + "/services/webproxy/?url=" + window.data_url, function(data) {
+                jQuery.getJSON("http://" + hostname + "/services/webproxy/?url=" + strURL, function(data) {
                     quiz.objData = data;
                     quiz.renderQuiz();
                 });
