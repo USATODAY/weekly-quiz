@@ -99,11 +99,11 @@ module.exports = function(grunt) {
       },
       html: {
         files: ['<%=config.src%>*.html'],
-        tasks: ['copy']
+        tasks: ['copy:main']
       },
       img: {
         files: ['<%=config.src%>img/*'],
-        taks: ['copy']
+        taks: ['copy:main']
       },
       options: {
         livereload: true,
@@ -151,6 +151,7 @@ module.exports = function(grunt) {
             "underscore": '../../bower_components/underscore/underscore',
             "jquery_ui": "lib/jquery-ui.min",
             "jquery_ui_touch_punch": "lib/jquery.ui.touch-punch.min",
+            "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
             "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
@@ -202,6 +203,7 @@ module.exports = function(grunt) {
             "underscore": '../../bower_components/underscore/underscore',
             "jquery_ui": "lib/jquery-ui.min",
             "jquery_ui_touch_punch": "lib/jquery.ui.touch-punch.min",
+            "analytics": "lib/analytics",
             "mobile_detect": "lib/mobile-detect",
             "d3": '../../bower_components/d3/d3',
             "mapbox": '../../bower_components/mapbox.js/mapbox.uncompressed'
