@@ -1,8 +1,9 @@
 define(
     [
         'jquery',
+        'analytics'
     ],
-    function(jQuery) {
+    function(jQuery, Analytics) {
         var quiz = quiz || {};
 
 
