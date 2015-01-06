@@ -2,7 +2,7 @@
 Base styles for project
 */
 
-* {
+article * {
    -moz-box-sizing:    border-box;   /* Firefox 1, probably can drop this */
    -webkit-box-sizing: border-box;   /* Safari 3-4, also probably droppable */
     box-sizing:        border-box;   /* Everything else */
