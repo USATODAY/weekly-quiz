@@ -49,8 +49,10 @@ define(
         };
 
         quiz.loadData = function() {
-            if (window.location.hostname == "www.usatoday.com") {
-                jQuery.getJSON("http://www.usatoday.com/services/webproxy/?url=" + window.data_url, function(data) {
+            var hostname = window.location.hostname;
+            if (hostname != "localhost") {
+
+                jQuery.getJSON("http://" + hostname + "/services/webproxy/?url=" + window.data_url, function(data) {
                     quiz.objData = data;
                     quiz.renderQuiz();
                 });
