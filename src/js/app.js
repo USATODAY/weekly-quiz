@@ -18,7 +18,7 @@ define(
                 $(".mobile-footer-link").hide();
                 $(".article-button").hide();
             }
-            quiz.objBody = jQuery(".asset");
+            quiz.objBody = jQuery("body");
             quiz.objQuizContainer = jQuery(".quiz-container");
             quiz.objData = {};
             quiz.arrNumQuizQuestions = [];
@@ -371,7 +371,7 @@ define(
         quiz.checkOrientation = function() {
             var winWidth = window.innerWidth;
             var winHeight = window.innerHeight;
-            if (winWidth < 600 && winHeight < 600 && Modernizr.touch) {
+            if (winWidth < 415 || winHeight < 415   ) {
                 if (winWidth > winHeight) {
                     quiz.objBody.addClass("landscape");
                 } else {
