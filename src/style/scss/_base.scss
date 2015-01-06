@@ -19,7 +19,7 @@ html {
   height: 100%;
 }
 
-body, article.assett {
+body, article.asset {
   background-size: cover !important;
   background-repeat: no-repeat;
   background-position: center center fixed;
@@ -30,6 +30,7 @@ body, article.assett {
   position: absolute;
   right: 0;
   top: 0;
+  width: 100%;
 }
 
 .group:after {
