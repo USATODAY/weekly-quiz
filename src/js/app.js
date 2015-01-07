@@ -6,8 +6,6 @@ define(
     function(jQuery, Analytics) {
         var quiz = quiz || {};
 
-
-
         quiz.init = function() {
 
             var blnIframeEmbed = window != window.parent;
@@ -34,6 +32,17 @@ define(
             quiz.blnAllDone = false;
             quiz.objShareBox = jQuery(".share-copy");
             quiz.strBackgroundURL = "";
+            quiz.staticInfo = [];
+            quiz.staticSection = jQuery(".staticinfo");
+            if (quiz.staticSection.length > 0) {
+                quiz.staticInfo = JSON.parse(quiz.staticSection.html());
+            } else {
+                quiz.staticInfo = JSON.parse('{"platform": "desktop", "facebook": {"channel_url": "//www.usatoday.com/static/html/channel.html", "app_id": "215046668549694"}, "ads": {"account": "usatoday"}, "share_url": "http://www.usatoday.com/pages/interactives/weekly-quiz-dev/"}');
+            }
+            quiz.platform = quiz.staticInfo.platform;
+            quiz.fbAppId = quiz.staticInfo.facebook.app_id;
+            quiz.adsAccount = quiz.staticInfo.ads.account;
+
             quiz.loadData();
 
             window.setTimeout(function() {
@@ -140,7 +149,7 @@ define(
                 strHTMLQuizzes += '</div>';
             });
             strHTMLIntro += '</div>';
-            quiz.objQuizContainer.html(strHTMLIntro + strHTMLQuizzes);
+            quiz.objQuizContainer.append(strHTMLIntro + strHTMLQuizzes);
 
             quiz.strBackgroundURL = quiz.objData[0].params[0].base_path + quiz.objData[0].params[0].start_back;
             quiz.checkOrientation();
@@ -382,6 +391,11 @@ define(
                 quiz.objBody.css({
                     'background': 'url(' + quiz.strBackgroundURL + ') no-repeat center center fixed'
                 });
+            }
+            if (quiz.platform === "desktop") {
+                quiz.objQuizContainer.css({"top": "40px", "min-height": (winHeight - 40).toString() + "px"});
+            } else {
+                quiz.objQuizContainer.css({"top": "50px", "min-height": (winHeight - 50).toString() + "px"});
             }
         };
         return quiz;
