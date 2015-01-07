@@ -92,6 +92,7 @@ define(
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
+                strHTMLQuizzes += '    <div class="question-progress-bar"><div class="question-progress-inner" style="width: 0%;"></div></div>';
                 strHTMLQuizzes += '    <div class="quiz-intro active">';
                 strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
                 strHTMLQuizzes += '        <div class="intro-label">';
@@ -112,8 +113,6 @@ define(
                 jQuery.each(quiz.objData[index].questions, function(qindex) {
                     strHTMLQuizzes += '    <div class="question-panel upcoming ' + quiz.objData[index].questions[qindex].type + '">';
                     strHTMLQuizzes += '        <div class="question-content upcoming">';
-                    strHTMLQuizzes += '            <div class="quiz-question-count">' + (qindex + 1) + '/' + quiz.objData[index].questions.length + '</div>';
-                    strHTMLQuizzes += '            <div class="quiz-share-button"><img src="' + quiz.objData[index].params[0].base_path + 'options.svg" alt="share"></div>';
                     strHTMLQuizzes += '            <div class="question-text">' + quiz.objData[index].questions[qindex].value + '</div>';
                     strHTMLQuizzes += '            <div class="question-response"></div>';
                     strHTMLQuizzes += '            <div class="question-buttons">';
@@ -140,9 +139,8 @@ define(
 
                 });
                 strHTMLQuizzes += '    <div class="results-panel upcoming">';
-                strHTMLQuizzes += '        <div class="quiz-share-button"><img src="' + quiz.objData[index].params[0].base_path + 'options.svg" alt="share"></div>';
                 strHTMLQuizzes += '        <div class="results-text"></div>';
-                strHTMLQuizzes += '        <div class="next-button"><h4 class="next-text">Next Quiz</h4></div>';
+                strHTMLQuizzes += '        <div class="quiz-share-button"><h4 class="next-text">Share</h4></div>';
                 strHTMLQuizzes += '        <div class="intro-button"><h4 class="next-text">Home</h4></div>';
                 strHTMLQuizzes += '    </div>';
 
@@ -171,6 +169,7 @@ define(
             quiz.arrShareCloseButtons = jQuery(".share-close-button");
             quiz.arrSharePanel = jQuery(".share-page");
             quiz.arrShareButtons = quiz.arrSharePanel.find("a");
+            quiz.arrProgressBars = jQuery(".question-progress-inner");
             quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").find("img");
             quiz.addEventListeners();
         };
@@ -248,6 +247,8 @@ define(
         };
 
         quiz.nextQuestion = function() {
+            var quizPercentComplete = quiz.currentQuestion / quiz.arrNumQuizQuestions[quiz.currentQuiz] * 100;
+            quiz.arrProgressBars.eq(quiz.currentQuiz).css("width", (quizPercentComplete + "%"));
             if (quiz.currentQuestion < quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
                 quiz.objImagePanel = quiz.arrQuestions.eq(quiz.currentQuestion).find(".question-image");
