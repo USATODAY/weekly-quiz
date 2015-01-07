@@ -103,8 +103,6 @@ define(
                 jQuery.each(quiz.objData[index].questions, function(qindex) {
                     strHTMLQuizzes += '    <div class="question-panel upcoming ' + quiz.objData[index].questions[qindex].type + '">';
                     strHTMLQuizzes += '        <div class="question-content upcoming">';
-                    strHTMLQuizzes += '            <div class="quiz-question-count">' + (qindex + 1) + '/' + quiz.objData[index].questions.length + '</div>';
-                    strHTMLQuizzes += '            <div class="quiz-share-button"><img src="' + quiz.objData[index].params[0].base_path + 'options.svg" alt="share"></div>';
                     strHTMLQuizzes += '            <div class="question-text">' + quiz.objData[index].questions[qindex].value + '</div>';
                     strHTMLQuizzes += '            <div class="question-response"></div>';
                     strHTMLQuizzes += '            <div class="question-buttons">';
@@ -131,9 +129,8 @@ define(
 
                 });
                 strHTMLQuizzes += '    <div class="results-panel upcoming">';
-                strHTMLQuizzes += '        <div class="quiz-share-button"><img src="' + quiz.objData[index].params[0].base_path + 'options.svg" alt="share"></div>';
                 strHTMLQuizzes += '        <div class="results-text"></div>';
-                strHTMLQuizzes += '        <div class="next-button"><h4 class="next-text">Next Quiz</h4></div>';
+                strHTMLQuizzes += '        <div class="quiz-share-button"><h4 class="next-text">Share</h4></div>';
                 strHTMLQuizzes += '        <div class="intro-button"><h4 class="next-text">Home</h4></div>';
                 strHTMLQuizzes += '    </div>';
 
