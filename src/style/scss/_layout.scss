@@ -8,6 +8,16 @@
   width: 100%;
 }
 
+/******
+
+default page style overrides
+
+******/
+
+html, body, #overlay, .transition-wrap, section.contents, article.padded-container, .non-article-content { height: 100% !important; }
+
+footer { display: none !important;}
+
 article {
   padding: 0;
   width: 100%;
@@ -16,6 +26,12 @@ article {
 div.non-article-content{
   padding: 0;
 }
+
+/******
+
+quiz layout styles
+
+******/
 
 .done {
   transform: translate(0, -100%);
