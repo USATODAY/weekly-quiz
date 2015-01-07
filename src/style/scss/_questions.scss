@@ -1,11 +1,10 @@
 $selected-border-width: 8px;
 
-.question-text {
-  
+.question-text {  
   font-family: "Futura Today Light", Arial,sans-serif;
   font-size: 1.5em;
   margin-bottom:0;
-  margin-top: 3em;
+  margin-top: 1em;
   padding: 1rem .5rem;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
@@ -14,16 +13,10 @@ $selected-border-width: 8px;
 .question-panel {
   background-color: rgb(0,0,0);
 }
-.question-content {
-  @include panel;
-  // transition: none;
-  // background-color: rgba(0, 0, 0, 0.3);
-}
-
+.question-content { @include panel;}
 
 .multi-text {
-  .answer {
-    
+  .answer { 
     margin: 0.5em auto;
     padding: 1em 0;
     position: relative;
@@ -34,11 +27,7 @@ $selected-border-width: 8px;
 
   .question-response {
     margin-bottom: 1rem;
-
   }
-
-
-  
 }
 
 .life {
@@ -275,6 +264,24 @@ $selected-border-width: 8px;
 
 .true-false .answer-response-image {
    right: 0;
-   // top: 50%;
-   // transform: translate(-25%, -50%);
+}
+
+/******
+
+progress bar
+
+******/
+
+.question-progress-bar {
+  background-color: white;
+  height: 10px;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.question-progress-inner {
+  background-color: $blue;
+  height: 100%;
+  transition: width 2000ms ease;
 }
