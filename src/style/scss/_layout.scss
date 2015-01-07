@@ -8,7 +8,14 @@
   width: 100%;
 }
 
+article {
+  padding: 0;
+  width: 100%;
+}
 
+div.non-article-content{
+  padding: 0;
+}
 
 .done {
   transform: translate(0, -100%);
