@@ -8,7 +8,30 @@
   width: 100%;
 }
 
+/******
 
+default page style overrides
+
+******/
+
+html, body, #overlay, .transition-wrap, section.contents, article.padded-container, .non-article-content { height: 100% !important; }
+
+footer { display: none !important;}
+
+article {
+  padding: 0;
+  width: 100%;
+}
+
+div.non-article-content{
+  padding: 0;
+}
+
+/******
+
+quiz layout styles
+
+******/
 
 .done {
   transform: translate(0, -100%);
@@ -89,22 +112,22 @@
   z-index: 2;
 }
 
-.quiz-share-button {
-  border-radius: 50%;
-  height: 3rem;
-  position: absolute;
-  right: .5rem;
-  top: .5rem;
-  width: 3rem;
-  z-index: 2;
-  img {
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-  }
-}
+// .quiz-share-button {
+//   border-radius: 50%;
+//   height: 3rem;
+//   position: absolute;
+//   right: .5rem;
+//   top: .5rem;
+//   width: 3rem;
+//   z-index: 2;
+//   img {
+//     left: 50%;
+//     position: absolute;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 50%;
+//   }
+// }
 
 .intro-label {
   border-radius: 50%;
@@ -171,7 +194,7 @@
     }
 }
 
-.next-button, .intro-button {
+.next-button, .intro-button, .quiz-share-button {
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 50%;
   height: 100px;
@@ -190,7 +213,7 @@
   }
 }
 
-.next-button {
+.next-button, .quiz-share-button {
   transform: translate(50%, -50%);
 }
 
@@ -198,7 +221,7 @@
   transform: translate(-150%, -50%);
 }
 
-.results-panel.active .next-button, .results-panel.active .intro-button {
+.results-panel.active .next-button, .results-panel.active .intro-button, .results-panel.active .quiz-share-button {
   animation-name: fade-in;
   animation-fill-mode:forwards;
   animation-timing-function: ease;
