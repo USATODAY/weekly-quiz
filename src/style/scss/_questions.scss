@@ -4,8 +4,8 @@ $selected-border-width: 8px;
   font-family: "Futura Today Light", Arial,sans-serif;
   font-size: 1.5em;
   margin-bottom:0;
-  margin-top: 1em;
-  padding: 1rem .5rem;
+  margin-top: 0;
+  padding: 2rem .5rem;
   text-align: center;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 }
@@ -273,15 +273,15 @@ progress bar
 ******/
 
 .question-progress-bar {
-  background-color: white;
-  height: 10px;
+  background-color: $dark-grey;
+  height: $selected-border-width;
   position: relative;
   width: 100%;
   z-index: 2;
 }
 
 .question-progress-inner {
-  background-color: $blue;
+  background-color: $light-grey;
   height: 100%;
   transition: width 2000ms ease;
 }
