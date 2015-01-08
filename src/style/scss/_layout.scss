@@ -14,7 +14,7 @@ default page style overrides
 
 ******/
 
-html, body, #overlay, .transition-wrap, section.contents, article.padded-container, .non-article-content { height: 100% !important; }
+html, body, .transition-wrap,  article.padded-container, .non-article-content { height: 100% !important; }
 
 footer { display: none !important;}
 
@@ -25,6 +25,10 @@ article {
 
 div.non-article-content{
   padding: 0;
+}
+
+section.contents, #overlay {
+  height: calc(100% - 40px);
 }
 
 /******
