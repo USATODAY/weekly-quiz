@@ -94,7 +94,6 @@ define(
             var i;
             var strHTMLIntro = "";
             var strHTMLQuizzes = "";
-            var intNumQuizzes = quiz.objData.length;
             strHTMLIntro += '<div class="intro active">';
             quiz.numTotalQuizzes = quiz.objData.length;
 
@@ -102,7 +101,7 @@ define(
             var strSVGX = '<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 63.1 69.8" enable-background="new 0 0 63.1 69.8" xml:space="preserve"><path d="M60.7,56L42.2,34.9l18.5-21.1c3.1-3.1,3.1-8.2,0-11.4c-3.1-3.1-8.2-3.1-11.4,0L31.5,22.7L13.7,2.4c-3.1-3.1-8.2-3.1-11.4,0 c-3.1,3.1-3.1,8.2,0,11.4l18.5,21.1L2.4,56c-3.1,3.1-3.1,8.2,0,11.4c3.1,3.1,8.2,3.1,11.4,0l17.8-20.3l17.8,20.3 c3.1,3.1,8.2,3.1,11.4,0C63.9,64.3,63.9,59.2,60.7,56z"/></svg>';
 
             jQuery.each(quiz.objData, function(index) {
-                strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / intNumQuizzes).toString() + '%;">';
+                strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / quiz.numTotalQuizzes).toString() + '%;">';
                 strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" /></div>';
                 strHTMLIntro += '    <div class="label">' + quiz.objData[index].params[0].label + '</div>';
                 strHTMLIntro += '</div>';
@@ -187,6 +186,12 @@ define(
             quiz.arrShareButtons = quiz.arrSharePanel.find("a");
             quiz.arrProgressBars = jQuery(".question-progress-inner");
             quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").find("img");
+            if (quiz.numTotalQuizzes < 2) {
+                quiz.objQuizContainer.addClass("single");
+                quiz.arrQuizIntros.removeClass("active").addClass("done");
+                quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
+                quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
+            }
             quiz.addEventListeners();
         };
 
