@@ -31,7 +31,7 @@ $selected-border-width: 8px;
 }
 
 .life {
-  .true-false, .multi-text {
+  &.true-false, &.multi-text {
     .answer { 
       @include life-bg(0.5); 
       &.selected {
@@ -41,12 +41,12 @@ $selected-border-width: 8px;
   }
   .quiz-share-button {@include life-bg(0.3);}
   @include question-border($purple);
-  .multi-photo .selected .image-wrap { border: solid $selected-border-width $purple;}
+  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $purple;}
   .answer-response-image { border: solid 5px $purple; fill: $purple; }
 }
 
 .news {
-  .true-false, .multi-text {
+  &.true-false, &.multi-text {
      .answer { 
         @include news-bg(0.5); 
         &.selected {
@@ -56,12 +56,12 @@ $selected-border-width: 8px;
   }
   .quiz-share-button {@include news-bg(0.3);}
   @include question-border($blue);
-  .multi-photo .selected .image-wrap { border: solid $selected-border-width $blue;}
+  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $blue;}
   .answer-response-image { border: solid 5px $blue; fill: $blue; }
 }
 
 .sports {
-  .true-false, .multi-text {
+  &.true-false, &.multi-text {
      .answer { 
         @include sports-bg(0.5); 
         &.selected {
@@ -71,12 +71,12 @@ $selected-border-width: 8px;
   }
   .quiz-share-button {@include sports-bg(0.3);}
   @include question-border($red);
-  .multi-photo .selected .image-wrap { border: solid $selected-border-width $red;}
+  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $red;}
   .answer-response-image { border: solid 5px $red; fill: $red; }
 }
 
 .tech {
-  .true-false, .multi-text {
+  &.true-false, &.multi-text {
      .answer { 
         @include tech-bg(0.5); 
         &.selected {
@@ -86,12 +86,12 @@ $selected-border-width: 8px;
   }
   .quiz-share-button {@include tech-bg(0.3);}
   @include question-border($orange);
-  .multi-photo .selected .image-wrap { border: solid $selected-border-width $orange;}
+  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $orange;}
   .answer-response-image { border: solid 5px $orange; fill: $orange; }
 }
 
 .money {
-  .true-false, .multi-text {
+  &.true-false, &.multi-text {
      .answer { 
       @include money-bg(0.5); 
       &.selected {
@@ -101,7 +101,7 @@ $selected-border-width: 8px;
   }
   .quiz-share-button {@include money-bg(0.3);}
   @include question-border($green);
-  .multi-photo .selected .image-wrap { border: solid $selected-border-width $green;}
+  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $green;}
   .answer-response-image { border: solid 5px $green; fill: $green; }
 }
 
