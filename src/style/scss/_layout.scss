@@ -271,11 +271,11 @@ quiz layout styles
 .money .intro-label { @include money-bg(0.5)}
 .sports .intro-label { @include sports-bg(0.5)}
 
-.life .results-text, .life.next-button { @include life-bg(0.5)}
-.news .results-text, .news.next-button { @include news-bg(0.5)}
-.tech .results-text, .tech.next-button { @include tech-bg(0.5)}
-.money .results-text, .money.next-button { @include money-bg(0.5)}
-.sports .results-text, .sports.next-button { @include sports-bg(0.5)}
-.all .results-text, .life.next-button { @include all-bg(0.5)}
+.life .results-text, .life.next-button { @include life-bg(0.8)}
+.news .results-text, .news.next-button { @include news-bg(0.8)}
+.tech .results-text, .tech.next-button { @include tech-bg(0.8)}
+.money .results-text, .money.next-button { @include money-bg(0.8)}
+.sports .results-text, .sports.next-button { @include sports-bg(0.8)}
+.all .results-text, .life.next-button { @include all-bg(0.8)}
 
 .answer, .next-button, .quiz-share-button { cursor: pointer; }
