@@ -27,7 +27,7 @@ module.exports = function(grunt) {
       },
       build: {
         options: {
-          style: 'compressed',
+          style: 'compressed'
         },
         files: {
           '<%=config.tmp%>project.css': '<%=config.src%>style/scss/project.scss'
