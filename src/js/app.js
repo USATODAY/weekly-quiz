@@ -43,6 +43,11 @@ define(
             quiz.fbAppId = quiz.staticInfo.facebook.app_id;
             quiz.adsAccount = quiz.staticInfo.ads.account;
 
+            if (quiz.platform == "mobile") {
+                quiz.objBG = quiz.objBody;
+            } else {
+                quiz.objBG = jQuery(".asset").eq(0);
+            }
             quiz.loadData();
 
             window.setTimeout(function() {
@@ -389,7 +394,7 @@ define(
                 }
             }
             if (winWidth > 540) {
-                quiz.objBody.css({
+                quiz.objBG.css({
                     'background': 'url(' + quiz.strBackgroundURL + ') no-repeat center center fixed'
                 });
             }
