@@ -27,8 +27,12 @@ div.non-article-content{
   padding: 0;
 }
 
-section.contents, #overlay {
+ #overlay {
   height: calc(100% - 40px);
+}
+
+section.contents {
+  height: calc(100% - 50px);
 }
 
 /******
