@@ -111,7 +111,7 @@ define(
                 quiz.arrShareTitles[index] = quiz.objData[index].params[0].title;
                 quiz.arrGenericShares[index] = quiz.objData[index].params[0].generic_share;
                 jQuery.each(quiz.objData[index].questions, function(qindex) {
-                    strHTMLQuizzes += '    <div class="question-panel upcoming ' + quiz.objData[index].questions[qindex].type + '">';
+                    strHTMLQuizzes += '    <div class="question-panel upcoming ' + quiz.objData[index].questions[qindex].type + ' ' + quiz.objData[index].questions[qindex].section + '">';
                     strHTMLQuizzes += '        <div class="question-content upcoming">';
                     strHTMLQuizzes += '            <div class="question-text">' + quiz.objData[index].questions[qindex].value + '</div>';
                     strHTMLQuizzes += '            <div class="question-response"></div>';
