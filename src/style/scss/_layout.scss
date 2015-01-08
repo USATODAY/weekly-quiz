@@ -268,5 +268,6 @@ quiz layout styles
 .tech .results-text, .tech.next-button { @include tech-bg(0.5)}
 .money .results-text, .money.next-button { @include money-bg(0.5)}
 .sports .results-text, .sports.next-button { @include sports-bg(0.5)}
+.all .results-text, .life.next-button { @include all-bg(0.5)}
 
 .answer, .next-button, .quiz-share-button { cursor: pointer; }
