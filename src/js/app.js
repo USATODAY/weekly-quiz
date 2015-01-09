@@ -86,16 +86,20 @@ define(
                 jQuery.getJSON("http://" + hostname + "/services/webproxy/?url=" + strURL, function(data) {
                     quiz.objData = data;
                     quiz.renderQuiz();
+                    window.setTimeout(function() {
+                        $(".preloader-mobile").eq(0).fadeOut(500);
+                    }, 1000);
                 });
             } else {
                 jQuery.getJSON('data/data.json', function(data) {
                     quiz.objData = data;
                     quiz.renderQuiz();
+                    window.setTimeout(function() {
+                        $(".preloader-mobile").eq(0).fadeOut(500);
+                    }, 1000);
                 });
 
-                window.setTimeout(function() {
-                    $(".preloader-mobile").eq(0).fadeOut(500);
-                }, 1000);
+                
 
                 onresize = function() {
                     
@@ -205,7 +209,6 @@ define(
             quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").find("img");
             if (quiz.numTotalQuizzes < 2) {
                 quiz.arrShareButtons = quiz.arrQuizResults.eq(0).find("a");
-                console.log(quiz.arrShareButtons);
                 
                 quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".intro-panel").find("img");
                 quiz.objQuizContainer.addClass("single");
