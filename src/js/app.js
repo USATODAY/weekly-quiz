@@ -172,6 +172,9 @@ define(
                 strHTMLQuizzes += '        <div class="results-text"></div>';
                 strHTMLQuizzes += '        <div class="quiz-share-button"><h4 class="next-text">Share</h4></div>';
                 strHTMLQuizzes += '        <div class="intro-button"><h4 class="next-text">Home</h4></div>';
+                strHTMLQuizzes += '        <div class="social-buttons"> <a href="" class="social-link" id="twitter-share"> <img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/twitter.svg" alt="twitter" class="social-icon"></a>';
+                strHTMLQuizzes += '<a href="" class="social-link"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/fb.svg" alt="twitter" class="social-icon"></a>';
+                strHTMLQuizzes += '<a href="" onclick="Analytics.click(' + "'Email Share'" + ')" class="social-link" id="email-share"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/email.svg" alt="email" class="social-icon"></a></div>';
                 strHTMLQuizzes += '    </div>';
 
                 strHTMLQuizzes += '</div>';
@@ -197,11 +200,13 @@ define(
             quiz.arrQuizLabels = jQuery(".label");
             quiz.arrShareShowButtons = jQuery(".quiz-share-button");
             quiz.arrShareCloseButtons = jQuery(".share-close-button");
-            quiz.arrSharePanel = jQuery(".share-page");
-            quiz.arrShareButtons = quiz.arrSharePanel.find("a");
+            
             quiz.arrProgressBars = jQuery(".question-progress-inner");
             quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").find("img");
             if (quiz.numTotalQuizzes < 2) {
+                quiz.arrShareButtons = quiz.arrQuizResults.eq(0).find("a");
+                console.log(quiz.arrShareButtons);
+                
                 quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".intro-panel").find("img");
                 quiz.objQuizContainer.addClass("single");
                 quiz.arrQuizIntros.removeClass("active").addClass("done");
@@ -209,6 +214,9 @@ define(
                 quiz.objPlayButton = jQuery(".play-button");
                 quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
+            } else {
+                quiz.arrSharePanel = jQuery(".share-page");
+                quiz.arrShareButtons = quiz.arrSharePanel.find("a");
             }
             quiz.addEventListeners();
         };

@@ -234,6 +234,12 @@ quiz layout styles
   width: 100px;
 }
 
+.single {
+  .next-button, .quiz-share-button, .intro-button {
+    display: none;
+  }
+}
+
 .iFrame {
   .next-button, .intro-button {
     top: 20%;
@@ -321,3 +327,37 @@ quiz layout styles
   }
 }
 
+
+/***
+Single quiz share buttons
+***/
+
+.results-panel .social-buttons {
+  display: none;
+}
+
+.single .results-panel .social-buttons {
+  display: block;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 360px;
+  @extend .group;
+  .social-link {
+    display: inline-block;
+    float: left;
+    width: 100px;
+    border-radius: 50%;
+    background-color: rgba(50, 50, 50, 0.5);
+    height: 100px;
+    margin: 0 10px;
+    position: relative;
+    .social-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
