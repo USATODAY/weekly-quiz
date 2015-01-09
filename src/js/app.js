@@ -317,7 +317,9 @@ define(
         quiz.nextQuestion = function() {
             var quizPercentComplete = quiz.currentQuestion / quiz.arrNumQuizQuestions[quiz.currentQuiz] * 100;
             quiz.arrProgressBars.eq(quiz.currentQuiz).css("width", (quizPercentComplete + "%"));
+
             if (quiz.currentQuestion < quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
+                quiz.arrProgressBars.removeClass().addClass("question-progress-inner " + quiz.objData[quiz.currentQuiz].questions[quiz.currentQuestion].section);
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
                 quiz.objImagePanel = quiz.arrQuestions.eq(quiz.currentQuestion).find(".question-image");
                 quiz.objQuestionContent = quiz.arrQuestions.eq(quiz.currentQuestion).find(".question-content");
@@ -336,6 +338,7 @@ define(
                 });
                 setTimeout(quiz.renderQuestion, 2000);
             } else {
+                quiz.arrProgressBars.removeClass().addClass("question-progress-inner");
                 quiz.objQuestionContent.removeClass("active").addClass("done");
                 quiz.renderResults();
             }
