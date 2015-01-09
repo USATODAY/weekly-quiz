@@ -232,8 +232,8 @@ define(
                         quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
                         quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
                         quiz.checkOrientation();
-                        Analytics.click('Intro panel quiz click');
-                        setTimeout(quiz.startQuiz, 2000);
+                        Analytics.click('Play button click');
+                        setTimeout(quiz.startQuiz, 1500);
                     }
                 });
             } else {
@@ -246,7 +246,7 @@ define(
                         quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
                         quiz.checkOrientation();
                         Analytics.click('Intro panel quiz click');
-                        setTimeout(quiz.startQuiz, 2000);
+                        setTimeout(quiz.startQuiz, 1500);
                     }
                 });
             }

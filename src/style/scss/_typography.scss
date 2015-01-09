@@ -50,6 +50,10 @@ body {
         top: 50%;
         transform: translate(-50%, -50%);
       }
+      @media (max-width: 414px) {
+        height: 200px;
+        width: 200px;
+      }
   }
 
  
