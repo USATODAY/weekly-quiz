@@ -19,7 +19,7 @@ html, body, .transition-wrap,  article.padded-container, .non-article-content { 
 footer { display: none !important;}
 
 article {
-  padding: 0;
+  padding: 0 !important;
   width: 100%;
 }
 
@@ -78,6 +78,14 @@ quiz layout styles
   position: relative;
 }
 
+.single {
+  .intro-panel {
+    cursor: default;
+    .background {
+      height: 100%;
+    }
+  }
+}
 .intro-panel {
   cursor: pointer;
   margin: 0;
@@ -109,6 +117,17 @@ quiz layout styles
     
     
   }
+}
+
+.single .intro-panel img {
+  &.wide {
+      min-height: 100%;
+      width: 100%;
+    }
+    &.tall {
+      height: 100%;
+      min-width: 100%;
+    }
 }
 
 .quiz-question-count {
@@ -162,7 +181,7 @@ quiz layout styles
   left: 50%;
   position: absolute;
   text-align: center;
-  top: 50%;
+  top: 30%;
   transform: translate(-50%, -50%);
   width: 300px;
 }
@@ -210,7 +229,7 @@ quiz layout styles
   opacity: 0;
   position: absolute;
   text-align: center;
-  top: 90%;
+  top: 70%;
   
   width: 100px;
 }
@@ -279,3 +298,26 @@ quiz layout styles
 .all .results-text, .life.next-button { @include all-bg(0.8)}
 
 .answer, .next-button, .quiz-share-button { cursor: pointer; }
+
+
+.play-button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  height: 100px;
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 80%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  h3 {
+    font-family: "Futura Today Light", Arial, sans-serif;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    transform: translate(-50%, -50%);
+    top: 50%;
+  }
+}
+
