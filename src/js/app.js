@@ -51,17 +51,12 @@ define(
             }
             quiz.loadData();
 
-            window.setTimeout(function() {
-                $(".preloader-mobile").eq(0).fadeOut(500);
-            }, 1000);
+            
             window.addEventListener("orientationchange", function() {
                 quiz.checkOrientation();
                 quiz.resizeImg();
             }, false);
-            onresize = onload = function() {
-                quiz.checkOrientation();
-                quiz.resizeImg();
-            };
+            
         };
 
         quiz.getParameterByName = function(name) {
@@ -92,6 +87,16 @@ define(
                     quiz.objData = data;
                     quiz.renderQuiz();
                 });
+
+                window.setTimeout(function() {
+                    $(".preloader-mobile").eq(0).fadeOut(500);
+                }, 1000);
+
+                onresize = function() {
+                    
+                    quiz.checkOrientation();
+                    quiz.resizeImg();
+                };
             }
         };
 
