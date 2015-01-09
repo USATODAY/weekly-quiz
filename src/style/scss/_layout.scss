@@ -81,6 +81,9 @@ quiz layout styles
 .single {
   .intro-panel {
     cursor: default;
+    .background {
+      height: 100%;
+    }
   }
 }
 .intro-panel {
@@ -114,6 +117,17 @@ quiz layout styles
     
     
   }
+}
+
+.single .intro-panel img {
+  &.wide {
+      min-height: 100%;
+      width: 100%;
+    }
+    &.tall {
+      height: 100%;
+      min-width: 100%;
+    }
 }
 
 .quiz-question-count {

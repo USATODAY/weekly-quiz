@@ -202,6 +202,7 @@ define(
             quiz.arrProgressBars = jQuery(".question-progress-inner");
             quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").find("img");
             if (quiz.numTotalQuizzes < 2) {
+                quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".intro-panel").find("img");
                 quiz.objQuizContainer.addClass("single");
                 quiz.arrQuizIntros.removeClass("active").addClass("done");
                 quiz.objMainIntro.append("<div class='play-button'><h3>Play</h3></div>");
