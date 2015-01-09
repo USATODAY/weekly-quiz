@@ -20,6 +20,9 @@ and install Bower with
 
 Once those dependencies are set up, from this repository run `npm install`, then run `bower install`, then run `grunt`
 
+##Javascript tests
+
+Tests are stored in the spec folder, and written using the [Jasmine](http://jasmine.github.io/) spec. To run tests, run `grunt test`. 
 
 ##Deployment
 
