@@ -16,24 +16,6 @@ define(['app'], function(app) {
     });
   });
 
-  describe("Renderer", function() {
-    beforeEach(function() {
-      var $sandbox = $(".sandbox").eq(0);
-
-      $sandbox.append("<div class='quiz-container'></div>");
-      app.init();
-      console.log(app.objData);
-    });
-
-    it("should create 1 quiz for each quiz in the data", function() {
-      var dataLength = app.objData.length;
-      var quizzes = $(".quiz");
-      console.log(quizzes);
-
-      expect(quizzes.length).toEqual(dataLength);
-    });
-  });
-
 
 });
 
