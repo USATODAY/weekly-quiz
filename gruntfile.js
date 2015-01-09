@@ -13,6 +13,7 @@ module.exports = function(grunt) {
       'name': 'weekly-quiz',
       'src': 'src/',
       'build': 'www/',
+      'tests': 'tests/',
       'tmp': '.tmp/'
     },
     pkg: grunt.file.readJSON('package.json'),
@@ -93,8 +94,8 @@ module.exports = function(grunt) {
         tasks: ['copy:main']
       },
       test: {
-        files: ['js/spec/*.js'],
-        tasks: ['']
+        files: ['tests/spec/*.js', 'tests/*.html'],
+        tasks: ['copy:test']
       },
       html: {
         files: ['<%=config.src%>*.html'],
@@ -109,15 +110,30 @@ module.exports = function(grunt) {
       }
     },
     browserSync: {
-      bsFiles: {
-        src: '<%=config.build%>**/*'
-      },
-      options: {
-        watchTask: true,
-        server: {
-          baseDir: "<%=config.build%>"
+      dev: {
+        bsFiles: {
+          src: '<%=config.build%>**/*'
+        },
+        options: {
+          watchTask: true,
+          server: {
+            baseDir: "<%=config.build%>"
+          }
         }
-      }
+      },
+      test: {
+        bsFiles: {
+          src: '<%=config.build%>**/*'
+        },
+        options: {
+          watchTask: true,
+          server: {
+            baseDir: "<%=config.build%>",
+            index: "SpecRunner.html"
+          }
+        }
+      },
+
     },
     jasmine: {
       test: {
@@ -263,6 +279,18 @@ module.exports = function(grunt) {
 
         ]
       },
+      test: {
+        files: [
+          // includes files within path
+          {
+            expand: true,
+            cwd: '<%=config.tests%>',
+            src: ['**/*'],
+            dest: '<%=config.build%>',
+            filter: 'isFile'
+          },
+        ]
+      },
       deploy: {
         files : [
           {
@@ -339,7 +367,8 @@ module.exports = function(grunt) {
 
   // Default task(s).
 
-  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'clean:tmp', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'clean:tmp', 'browserSync:dev', 'watch']);
+  grunt.registerTask('test', ['clean:dev', 'jst', 'requirejs:dev', 'sass:dev', 'autoprefixer:dev', 'copy:main', 'copy:test', 'clean:tmp', 'browserSync:test', 'watch']);
   grunt.registerTask('build', ['clean:dev', 'jst', 'requirejs:deploy', 'sass:build', 'autoprefixer:build', 'copy:main'])
   grunt.registerTask('deploy', ['build', 'copy:deploy', 'ftp:upload1', 'ftp:upload2', 'ftp:upload3', 'clean:deploy']);
 };

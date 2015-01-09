@@ -58,10 +58,10 @@ define(
                 quiz.checkOrientation();
                 quiz.resizeImg();
             }, false);
-            onresize = onload = function() {
-                quiz.checkOrientation();
-                quiz.resizeImg();
-            };
+            // onresize = onload = function() {
+            //     quiz.checkOrientation();
+            //     quiz.resizeImg();
+            // };
         };
 
         quiz.getParameterByName = function(name) {
