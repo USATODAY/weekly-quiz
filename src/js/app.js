@@ -205,6 +205,7 @@ define(
                 quiz.objQuizContainer.addClass("single");
                 quiz.arrQuizIntros.removeClass("active").addClass("done");
                 quiz.objMainIntro.append("<div class='play-button'><h3>Play</h3></div>");
+                quiz.objPlayButton = jQuery(".play-button");
                 quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
             }
@@ -212,18 +213,36 @@ define(
         };
 
         quiz.addEventListeners = function() {
-            quiz.arrMainIntroPanels.click(function(e) {
-                quiz.currentQuiz = quiz.arrMainIntroPanels.index(this);
-                if (!quiz.arrQuizDone[quiz.currentQuiz]) {
-                    quiz.currentQuestion = 0;
-                    quiz.objMainIntro.removeClass("active").addClass("done");
-                    quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
-                    quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
-                    quiz.checkOrientation();
-                    Analytics.click('Intro panel quiz click');
-                    setTimeout(quiz.startQuiz, 2000);
-                }
-            });
+
+            if (quiz.numTotalQuizzes < 2) {
+                quiz.objPlayButton.click(function(e) {
+                    quiz.currentQuiz = 0;
+                    if (!quiz.arrQuizDone[quiz.currentQuiz]) {
+                        quiz.currentQuestion = 0;
+                        quiz.objMainIntro.removeClass("active").addClass("done");
+                        quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
+                        quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
+                        quiz.checkOrientation();
+                        Analytics.click('Intro panel quiz click');
+                        setTimeout(quiz.startQuiz, 2000);
+                    }
+                });
+            } else {
+                quiz.arrMainIntroPanels.click(function(e) {
+                    quiz.currentQuiz = quiz.arrMainIntroPanels.index(this);
+                    if (!quiz.arrQuizDone[quiz.currentQuiz]) {
+                        quiz.currentQuestion = 0;
+                        quiz.objMainIntro.removeClass("active").addClass("done");
+                        quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("upcoming").addClass("active");
+                        quiz.strBackgroundURL = quiz.objData[quiz.currentQuiz].params[0].base_path + quiz.objData[quiz.currentQuiz].background;
+                        quiz.checkOrientation();
+                        Analytics.click('Intro panel quiz click');
+                        setTimeout(quiz.startQuiz, 2000);
+                    }
+                });
+            }
+
+
 
             quiz.arrQuizHome.click(function(e) {
                 quiz.arrQuizzes.eq(quiz.currentQuiz).removeClass("active").addClass("done");
