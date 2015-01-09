@@ -19,7 +19,7 @@ html, body, .transition-wrap,  article.padded-container, .non-article-content { 
 footer { display: none !important;}
 
 article {
-  padding: 0;
+  padding: 0 !important;
   width: 100%;
 }
 
