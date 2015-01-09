@@ -279,3 +279,12 @@ quiz layout styles
 .all .results-text, .life.next-button { @include all-bg(0.8)}
 
 .answer, .next-button, .quiz-share-button { cursor: pointer; }
+
+
+.play-button {
+  display: none;
+}
+
+.single .play-button {
+  display: block;
+}

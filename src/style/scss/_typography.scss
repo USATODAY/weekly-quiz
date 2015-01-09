@@ -25,5 +25,32 @@ body {
     padding: 0;
     position: absolute;
     text-transform: uppercase;
+    h2 {
+      font-family: "Futura Today Light", Arial,sans-serif;
+      font-size: 1.2em;
+    }
   }
+}
+
+.single {
+  .intro-panel .label {
+      background-color: rgba(50, 50, 50, 0.8);
+      border-radius: 50%;
+      height: 300px;
+      left: 50%;
+      position: absolute;
+      text-align: center;
+      top: 40%;
+      transform: translate(-50%, -50%);
+      width: 300px;
+      h2 {
+        font-size: 0.8em;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+  }
+
+ 
 }

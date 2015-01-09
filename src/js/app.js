@@ -118,7 +118,7 @@ define(
             jQuery.each(quiz.objData, function(index) {
                 strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / quiz.numTotalQuizzes).toString() + '%;">';
                 strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" /></div>';
-                strHTMLIntro += '    <div class="label">' + quiz.objData[index].params[0].label + '</div>';
+                strHTMLIntro += '    <div class="label"><h2>' + quiz.objData[index].params[0].label + '</h2></div>';
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
@@ -204,6 +204,7 @@ define(
             if (quiz.numTotalQuizzes < 2) {
                 quiz.objQuizContainer.addClass("single");
                 quiz.arrQuizIntros.removeClass("active").addClass("done");
+                quiz.objMainIntro.append("<div class='play-button'><h3>Play</h3></div>");
                 quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
                 quiz.arrQuestions.eq(quiz.currentQuestion).removeClass("upcoming").addClass("active");
             }
