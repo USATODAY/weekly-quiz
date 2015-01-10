@@ -16,6 +16,21 @@ define(['app'], function(app) {
     });
   });
 
+  describe("loadData", function() {
+    beforeEach(function() {
+      spyOn(jQuery, "getJSON");
+      spyOn(app, "renderQuiz");
+
+      app.loadData();
+    });
+
+    it("should make an ajax call for data", function() {
+      expect(jQuery.getJSON).toHaveBeenCalled();
+      console.log(jQuery.getJSON);
+    });
+
+  });
+
 
 });
 
