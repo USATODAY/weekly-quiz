@@ -126,7 +126,7 @@ define(
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
-                strHTMLQuizzes += '    <div class="question-progress-bar"><div class="question-progress-inner" style="width: 0%;"></div></div>';
+                strHTMLQuizzes += '    <div class="question-progress-bar"><div class="question-progress-inner" style="transform: scaleX(0);"></div></div>';
                 strHTMLQuizzes += '    <div class="quiz-intro active">';
                 strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
                 strHTMLQuizzes += '        <div class="intro-label">';
@@ -315,8 +315,8 @@ define(
         };
 
         quiz.nextQuestion = function() {
-            var quizPercentComplete = quiz.currentQuestion / quiz.arrNumQuizQuestions[quiz.currentQuiz] * 100;
-            quiz.arrProgressBars.eq(quiz.currentQuiz).css("width", (quizPercentComplete + "%"));
+            var quizPercentComplete = quiz.currentQuestion / quiz.arrNumQuizQuestions[quiz.currentQuiz];
+            quiz.arrProgressBars.eq(quiz.currentQuiz).css("transform", ("scaleX(" + quizPercentComplete + ")"));
 
             if (quiz.currentQuestion < quiz.arrNumQuizQuestions[quiz.currentQuiz]) {
                 quiz.arrProgressBars.removeClass().addClass("question-progress-inner " + quiz.objData[quiz.currentQuiz].questions[quiz.currentQuestion].section);
