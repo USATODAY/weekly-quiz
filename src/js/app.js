@@ -2,8 +2,10 @@ define(
     [
         'jquery',
         'analytics',
+        'underscore',
+        'backbone'
     ],
-    function(jQuery, Analytics) {
+    function(jQuery, Analytics, _, Backbone) {
 
         var quiz = quiz || {};
 
