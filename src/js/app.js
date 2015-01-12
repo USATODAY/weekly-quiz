@@ -124,7 +124,8 @@ define(
             jQuery.each(quiz.objData, function(index) {
                 strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / quiz.numTotalQuizzes).toString() + '%;">';
                 strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" /></div>';
-                strHTMLIntro += '    <div class="label"><h2>' + quiz.objData[index].params[0].label + '</h2></div>';
+                strHTMLIntro += '    <div class="label"><div class="label-inner-wrap"><h3>' + quiz.objData[index].params[0].label + '</h3>';
+                strHTMLIntro += '    <p class="sub-label">' + quiz.objData[index].params[0].sub_label + '</p></div></div>';
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
@@ -204,6 +205,7 @@ define(
             quiz.arrQuizNext = jQuery(".next-button");
             quiz.arrQuizHome = jQuery(".intro-button");
             quiz.arrQuizLabels = jQuery(".label");
+            quiz.arrQuizSubLabels = jQuery(".sub-label");
             quiz.arrShareShowButtons = jQuery(".quiz-share-button");
             quiz.arrShareCloseButtons = jQuery(".share-close-button");
             

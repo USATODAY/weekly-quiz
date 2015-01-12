@@ -4,6 +4,7 @@ Weekly News Quiz
 
 
 Copyright 2015 USA TODAY. All rights reserved. No part of these materials may be reproduced, modified, stored in a retrieval system, or retransmitted, in any form or by any means, electronic, mechanical or otherwise, without prior written permission from USA TODAY.
+
 ##Development
 
 The requirements for this project are Node.js, Bower and Grunt. 
@@ -26,8 +27,12 @@ Tests are stored in the spec folder, and written using the [Jasmine](http://jasm
 
 ##Deployment
 
-This project assumes you want to deploy to the Gannett-CDN in part and will be publishing via Static-O-Matic. When you're ready to deploy, run `grunt deploy`. This assumes you have USA TODAY's FTP credentials stored on your machine. 
+The deployment tools in this project assume your are deploying to USA TODAY's CDN and publishing to usatoday.com, and that you have USA TODAY's credentials stored locally on your computer. Otherwise this deployment method won't work without being re-configured.
+
+If you do meet those conditions:
+
+When you're ready to deploy, run `grunt deploy`. 
 
 ##Assetts
 
-Images, videos, and other assetts should be stored outside this repo on the CDN. Please use absolute URLs for all linked assetts. This will aid in the publishing process.
+USA TODAY Images, videos, and other assetts are stored outside this repository on our CDN and referenced via absolute URL's.
