@@ -285,6 +285,9 @@ progress bar
   background-color: $light-grey;
   height: 100%;
   transition: all 2000ms ease;
+  transform: scaleX(0);
+  transform-origin: 0;
+  width: 100%;
   &.news { background-color: $blue;}
   &.sports { background-color: $red;}
   &.life { background-color: $purple;}
