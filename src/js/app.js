@@ -13,6 +13,26 @@ define(
 
             var blnIframeEmbed = window != window.parent;
 
+            var Router = Backbone.Router.extend({
+                routes: {
+                    "data/*path": "data",
+                    "week/:section/:number": "week",
+                    "custom/*path": "custom"
+                },
+
+                data: function(path) {
+                    console.log(path);
+                },
+
+                week: function(section, number) {
+                    console.log(section + ", " + number);
+                },
+
+                custom: function(path) {
+                    console.log(path);
+                }
+            });
+
             if (blnIframeEmbed) {
                 $("body").addClass("iFrame");
                 $("#header").hide();
@@ -63,8 +83,11 @@ define(
             //     quiz.checkOrientation();
             //     quiz.resizeImg();
             // };
+            quiz.dataRouter = new Router();
+            Backbone.history.start();
 
         };
+
 
         quiz.getParameterByName = function(name) {
             var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -74,6 +97,8 @@ define(
         quiz.loadData = function() {
             var hostname = window.location.hostname;
             var strURL = window.data_url;
+            console.log(strURL);
+/*
             var strQuery = quiz.getParameterByName("file");
             if (strQuery) {
                 strQuery = decodeURIComponent(strQuery);
@@ -82,6 +107,7 @@ define(
                 }
                 strURL = "http://www.gannett-cdn.com/experiments" + strQuery;
             }
+*/
 
             if (hostname != "localhost") {
 
