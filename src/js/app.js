@@ -1,37 +1,15 @@
 define(
     [
         'jquery',
-        'analytics',
-        'underscore',
-        'backbone'
+        'analytics'
     ],
-    function(jQuery, Analytics, _, Backbone) {
+    function(jQuery, Analytics) {
 
         var quiz = quiz || {};
 
         quiz.init = function() {
 
             var blnIframeEmbed = window != window.parent;
-
-            var Router = Backbone.Router.extend({
-                routes: {
-                    "data/*path": "data",
-                    "week/:section/:number": "week",
-                    "custom/*path": "custom"
-                },
-
-                data: function(path) {
-                    console.log(path);
-                },
-
-                week: function(section, number) {
-                    console.log(section + ", " + number);
-                },
-
-                custom: function(path) {
-                    console.log(path);
-                }
-            });
 
             if (blnIframeEmbed) {
                 $("body").addClass("iFrame");
@@ -71,7 +49,7 @@ define(
             } else {
                 quiz.objBG = jQuery(".asset").eq(0);
             }
-            quiz.loadData();
+            quiz.dataHandler();
 
             
             window.addEventListener("orientationchange", function() {
@@ -79,13 +57,20 @@ define(
                 quiz.resizeImg();
             }, false);
 
-            // onresize = onload = function() {
-            //     quiz.checkOrientation();
-            //     quiz.resizeImg();
-            // };
-            quiz.dataRouter = new Router();
-            Backbone.history.start();
+        };
 
+        quiz.dataHandler = function() {
+            var strHash = document.location.hash;
+            var arrParams = strHash.split("/");
+            if (arrParams[0] === "#week") {
+                window.data_url = "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
+            } else if (arrParams[0] === "#data") {
+                window.data_url = "http://www.gannett-cdn.com/experiments" + strHash.replace("#data", "") + "data.json";
+            } else {
+                window.data_url = strHash.replace("#custom/", "");
+            }
+            console.log(window.data_url);
+            quiz.loadData();
         };
 
 
@@ -97,17 +82,6 @@ define(
         quiz.loadData = function() {
             var hostname = window.location.hostname;
             var strURL = window.data_url;
-            console.log(strURL);
-/*
-            var strQuery = quiz.getParameterByName("file");
-            if (strQuery) {
-                strQuery = decodeURIComponent(strQuery);
-                if (strQuery.charAt(0) !== "/") {
-                    strQuery = "/" + strQuery;
-                }
-                strURL = "http://www.gannett-cdn.com/experiments" + strQuery;
-            }
-*/
 
             if (hostname != "localhost") {
 
