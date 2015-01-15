@@ -1,7 +1,7 @@
 define(
     [
         'jquery',
-        'analytics',
+        'analytics'
     ],
     function(jQuery, Analytics) {
 
@@ -49,7 +49,7 @@ define(
             } else {
                 quiz.objBG = jQuery(".asset").eq(0);
             }
-            quiz.loadData();
+            quiz.dataHandler();
 
             
             window.addEventListener("orientationchange", function() {
@@ -57,12 +57,23 @@ define(
                 quiz.resizeImg();
             }, false);
 
-            // onresize = onload = function() {
-            //     quiz.checkOrientation();
-            //     quiz.resizeImg();
-            // };
-
         };
+
+        quiz.dataHandler = function() {
+            var strHash = document.location.hash;
+            if ((strHash) && (strHash !== "") && (strHash !== "#")) {
+                var arrParams = strHash.split("/");
+                if (arrParams[0] === "#week") {
+                    window.data_url = "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
+                } else if (arrParams[0] === "#data") {
+                    window.data_url = "http://www.gannett-cdn.com/experiments" + strHash.replace("#data", "") + "data.json";
+                } else {
+                    window.data_url = strHash.replace("#custom/", "");
+                }
+            }
+            quiz.loadData();
+        };
+
 
         quiz.getParameterByName = function(name) {
             var match = new RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -72,14 +83,6 @@ define(
         quiz.loadData = function() {
             var hostname = window.location.hostname;
             var strURL = window.data_url;
-            var strQuery = quiz.getParameterByName("file");
-            if (strQuery) {
-                strQuery = decodeURIComponent(strQuery);
-                if (strQuery.charAt(0) !== "/") {
-                    strQuery = "/" + strQuery;
-                }
-                strURL = "http://www.gannett-cdn.com/experiments" + strQuery;
-            }
 
             if (hostname != "localhost") {
 

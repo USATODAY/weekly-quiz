@@ -1,1 +1,184 @@
-[{"section": "all", "params": [{"start_back": "main-background.jpg", "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/", "title": "2014 end of year News quiz", "sponsor_text": "", "generic_share": "What did you learn this year? There's only one way to find out. Try this quiz.", "sponsor_photo": "", "sub_label": "sub header goes in here", "label": "News", "background": "news.jpg"}], "questions": [{"section": "news", "value": "This attorney, representing the family of Michael Brown, gained national attention when he represented the family of Trayvon Martin in 2012.", "type": "multi-photo", "answers": [{"image": "parks.jpg", "correct": "", "answer": "Daryl Parks\n"}, {"image": "nixon.jpg", "correct": "", "answer": "Jay Nixon"}, {"image": "crump.jpg", "correct": "x", "answer": "Benjamin Crump"}, {"image": "shabazz.jpg", "correct": "", "answer": "Malik Shabazz"}], "image": "ferguson.jpg", "q_id": "1"}, {"section": "life", "value": "Who won season 19 of Dancing With the Stars? ", "type": "multi-text", "answers": [{"image": "", "correct": "", "answer": "Richard Branson"}, {"image": "", "correct": "", "answer": "Bill Gates"}, {"image": "", "correct": "x", "answer": "Charlie Sheen"}, {"image": "", "correct": "", "answer": "Jon Cryer\n"}, {"image": "", "correct": "", "answer": "Howard Stern\n"}], "image": "dancing.jpg", "q_id": "2"}, {"section": "money", "value": "Alibaba became the biggest U.S. IPO in history earlier this year. So, what exactly is Alibaba?", "type": "multi-text", "answers": [{"image": "", "correct": "", "answer": "A film production company"}, {"image": "", "correct": "x", "answer": "A Chinese online marketplace company"}, {"image": "", "correct": "", "answer": "A Silicon Valley startup"}, {"image": "", "correct": "", "answer": "A Middle Eastern airline"}], "image": "alibaba.jpg", "q_id": "3"}, {"section": "news", "value": "Two Malaysia Airline disasters killed more than 500 people in 2014. In both incidents, the jets were shot down over Ukraine.", "type": "true-false", "answers": [{"image": "", "correct": "", "answer": "TRUE"}, {"image": "", "correct": "x", "answer": "FALSE"}], "image": "malaysia.jpg", "q_id": "4"}, {"section": "news", "value": "In which countries has the Ebola outbreak officially been declared over? ", "type": "multi-text", "answers": [{"image": "", "correct": "", "answer": "Guinea and Sierra Leone"}, {"image": "", "correct": "x", "answer": "Nigeria and Senegal"}, {"image": "", "correct": "", "answer": "Liberia and Senegal"}, {"image": "", "correct": "", "answer": "Mali and the USA"}], "image": "ebola.jpg", "q_id": "5"}], "background": "bg-news.jpg", "quiz_num": "1", "results": [{"range": "1", "text": "You were awake some this year, right?", "share_text": "Things happened this year and clearly I missed the memo. How'd you do?"}, {"range": "3", "text": "A little less Netflix and a little more news, OK?", "share_text": "Time to close my Netflix screen and read a little. What's your score?"}, {"range": "4", "text": "OK, you can toss around headlines at a dinner party.", "share_text": "So close, yet so far. Maybe it's time to pick up a newspaper. Test your knowledge."}, {"range": "5", "text": "Nice! You've got this current events thing down.", "share_text": "I'm pretty much USA TODAY. Think you can top me? "}]}]
+[
+    {
+        "section": "all",
+        "params": [
+            {
+                "start_back": "main-background.jpg",
+                "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/news/sample-single/img/",
+                "title": "2014 end of year News quiz",
+                "sponsor_text": "",
+                "generic_share": "What did you learn this year? There's only one way to find out. Try this quiz.",
+                "sponsor_photo": "",
+                "sub_label": "sub header goes in here",
+                "label": "News",
+                "background": "news.jpg"
+            }
+        ],
+        "questions": [
+            {
+                "section": "news",
+                "value": "This attorney, representing the family of Michael Brown, gained national attention when he represented the family of Trayvon Martin in 2012.",
+                "type": "multi-photo",
+                "answers": [
+                    {
+                        "image": "parks.jpg",
+                        "correct": "",
+                        "answer": "Daryl Parks\n"
+                    },
+                    {
+                        "image": "nixon.jpg",
+                        "correct": "",
+                        "answer": "Jay Nixon"
+                    },
+                    {
+                        "image": "crump.jpg",
+                        "correct": "x",
+                        "answer": "Benjamin Crump"
+                    },
+                    {
+                        "image": "shabazz.jpg",
+                        "correct": "",
+                        "answer": "Malik Shabazz"
+                    }
+                ],
+                "image": "ferguson.jpg",
+                "q_id": "1"
+            },
+            {
+                "section": "life",
+                "value": "Who won season 19 of Dancing With the Stars? ",
+                "type": "multi-text",
+                "answers": [
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "Richard Branson"
+                    },
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "Bill Gates"
+                    },
+                    {
+                        "image": "",
+                        "correct": "x",
+                        "answer": "Charlie Sheen"
+                    },
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "Jon Cryer\n"
+                    },
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "Howard Stern\n"
+                    }
+                ],
+                "image": "dancing.jpg",
+                "q_id": "2"
+            },
+            {
+                "section": "money",
+                "value": "Alibaba became the biggest U.S. IPO in history earlier this year. So, what exactly is Alibaba?",
+                "type": "multi-text",
+                "answers": [
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "A film production company"
+                    },
+                    {
+                        "image": "",
+                        "correct": "x",
+                        "answer": "A Chinese online marketplace company"
+                    },
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "A Silicon Valley startup"
+                    },
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "A Middle Eastern airline"
+                    }
+                ],
+                "image": "alibaba.jpg",
+                "q_id": "3"
+            },
+            {
+                "section": "news",
+                "value": "Two Malaysia Airline disasters killed more than 500 people in 2014. In both incidents, the jets were shot down over Ukraine.",
+                "type": "true-false",
+                "answers": [
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "TRUE"
+                    },
+                    {
+                        "image": "",
+                        "correct": "x",
+                        "answer": "FALSE"
+                    }
+                ],
+                "image": "malaysia.jpg",
+                "q_id": "4"
+            },
+            {
+                "section": "news",
+                "value": "In which countries has the Ebola outbreak officially been declared over? ",
+                "type": "multi-text",
+                "answers": [
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "Guinea and Sierra Leone"
+                    },
+                    {
+                        "image": "",
+                        "correct": "x",
+                        "answer": "Nigeria and Senegal"
+                    },
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "Liberia and Senegal"
+                    },
+                    {
+                        "image": "",
+                        "correct": "",
+                        "answer": "Mali and the USA"
+                    }
+                ],
+                "image": "ebola.jpg",
+                "q_id": "5"
+            }
+        ],
+        "background": "bg-news.jpg",
+        "quiz_num": "1",
+        "results": [
+            {
+                "range": "1",
+                "text": "You were awake some this year, right?",
+                "share_text": "Things happened this year and clearly I missed the memo. How'd you do?"
+            },
+            {
+                "range": "3",
+                "text": "A little less Netflix and a little more news, OK?",
+                "share_text": "Time to close my Netflix screen and read a little. What's your score?"
+            },
+            {
+                "range": "4",
+                "text": "OK, you can toss around headlines at a dinner party.",
+                "share_text": "So close, yet so far. Maybe it's time to pick up a newspaper. Test your knowledge."
+            },
+            {
+                "range": "5",
+                "text": "Nice! You've got this current events thing down.",
+                "share_text": "I'm pretty much USA TODAY. Think you can top me? "
+            }
+        ]
+    }
+]
