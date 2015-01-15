@@ -61,15 +61,16 @@ define(
 
         quiz.dataHandler = function() {
             var strHash = document.location.hash;
-            var arrParams = strHash.split("/");
-            if (arrParams[0] === "#week") {
-                window.data_url = "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
-            } else if (arrParams[0] === "#data") {
-                window.data_url = "http://www.gannett-cdn.com/experiments" + strHash.replace("#data", "") + "data.json";
-            } else {
-                window.data_url = strHash.replace("#custom/", "");
+            if ((strHash) && (strHash !== "") && (strHash !== "#")) {
+                var arrParams = strHash.split("/");
+                if (arrParams[0] === "#week") {
+                    window.data_url = "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/" + arrParams[1] + "/" + "week" + arrParams[2] + "/data.json";
+                } else if (arrParams[0] === "#data") {
+                    window.data_url = "http://www.gannett-cdn.com/experiments" + strHash.replace("#data", "") + "data.json";
+                } else {
+                    window.data_url = strHash.replace("#custom/", "");
+                }
             }
-            console.log(window.data_url);
             quiz.loadData();
         };
 
