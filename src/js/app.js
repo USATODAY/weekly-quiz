@@ -181,8 +181,8 @@ define(
                 strHTMLQuizzes += '        <div class="quiz-share-button"><h4 class="next-text">Share</h4></div>';
                 strHTMLQuizzes += '        <div class="intro-button"><h4 class="next-text">Home</h4></div>';
                 strHTMLQuizzes += '        <div class="social-buttons"> <a href="" class="social-link" id="twitter-share"> <img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/twitter.svg" alt="twitter" class="social-icon"></a>';
-                strHTMLQuizzes += '<a href="" class="social-link"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/fb.svg" alt="twitter" class="social-icon"></a>';
-                strHTMLQuizzes += '<a href="" class="social-link" id="email-share"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/email.svg" alt="email" class="social-icon"></a></div>';
+                strHTMLQuizzes += '        <a href="" class="social-link"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/fb.svg" alt="twitter" class="social-icon"></a>';
+                strHTMLQuizzes += '        <a href="" class="social-link" id="email-share"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/email.svg" alt="email" class="social-icon"></a></div>';
                 strHTMLQuizzes += '    </div>';
 
                 strHTMLQuizzes += '</div>';
@@ -319,10 +319,10 @@ define(
             strShareHead = quiz.arrShareTitles[quiz.currentQuiz];
             strShareChatter = quiz.arrGenericShares[quiz.currentQuiz];
             quiz.arrShareButtons.eq(1).attr({
-                "href": "javascript: var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + encodeURIComponent(strPageURL) + "&picture=" + strPageURL.substr(0, strPageURL.lastIndexOf("/") + 1) + "img/fb-post.jpg&name=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + "&description=" + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
+                "onclick": "var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + encodeURIComponent(strPageURL) + "&picture=" + quiz.objData[quiz.currentQuiz].params[0].base_path + "fb-post.jpg&name=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + "&description=" + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
             });
             quiz.arrShareButtons.eq(0).attr({
-                "href": "javascript: window.open('https://twitter.com/intent/tweet?url=" + encodeURIComponent(strPageURL) + "&text=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + ": " + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');void(0);"
+                "onclick": "window.open('https://twitter.com/intent/tweet?url=" + encodeURIComponent(strPageURL) + "&text=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + ": " + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');void(0);"
             });
             quiz.arrShareButtons.eq(2).attr({
                 "href": "mailto:?body=" + quiz.arrGenericShares[quiz.currentQuiz] + " %0d%0d " + encodeURIComponent(strPageURL) + "&subject=" + quiz.arrShareTitles[quiz.currentQuiz]
@@ -405,11 +405,13 @@ define(
             }
             strShareHead = quiz.arrShareTitles[quiz.currentQuiz];
             strShareChatter = strShareText;
+            strShareHead = strShareHead.replace("'", "\\'");
+            strShareChatter = strShareChatter.replace("'", "\\'");
             quiz.arrShareButtons.eq(1).attr({
-                "href": "javascript: var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + encodeURIComponent(strPageURL) + "&picture=" + strPageURL.substr(0, strPageURL.lastIndexOf("/") + 1) + "img/fb-post.jpg&name=" + escape(encodeURIComponent(strShareHead)).replace("%27", "\\'") + "&description=" + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
+                "onclick": "var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + strPageURL + "&picture=" + quiz.objData[quiz.currentQuiz].params[0].base_path + "fb-post.jpg&name=" + strShareHead + "&description=" + strShareChatter + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
             });
             quiz.arrShareButtons.eq(0).attr({
-                "href": "javascript: window.open('https://twitter.com/intent/tweet?url=" + encodeURIComponent(strPageURL) + "&text=" + escape(encodeURIComponent(strShareChatter)).replace("%27", "\\'") + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');void(0);"
+                "onclick": "window.open('https://twitter.com/intent/tweet?url=" + strPageURL + "&text=" + strShareChatter + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');void(0);"
             });
             quiz.arrShareButtons.eq(2).attr({
                 "href": "mailto:?body=" + strShareText + " %0d%0d " + encodeURIComponent(strPageURL) + "&subject=" + quiz.arrShareTitles[quiz.currentQuiz]
