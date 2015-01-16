@@ -1,6 +1,6 @@
 .blur {
   transition: all 250ms ease;
-  filter: url(../img/blur.svg#blur);
+  filter: url(#blur);
   filter: blur(6px);
 
 }
@@ -11,4 +11,8 @@
 
 .small-blur {
   filter: blur(3px)
+}
+
+.blur-filter {
+  position: absolute;
 }
