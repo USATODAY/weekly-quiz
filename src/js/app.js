@@ -308,7 +308,7 @@ define(
         };
 
         quiz.startQuiz = function() {
-            var strShareHead, strShareChatter;
+            var strShareHead, strShareChatter, strFBURL;
             var strPageURL = document.location.href;
             quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
             quiz.arrQuizIntros.eq(quiz.currentQuiz).removeClass("active").addClass("done");
@@ -318,8 +318,9 @@ define(
             strShareHead = strShareHead.replace("'", "\\'");
             strShareChatter = strShareChatter.replace("'", "\\'");
             strPageURL = strPageURL.replace("#", "%23");
+            strFBURL = "http://" + document.location.host + "/pages/interactives/fb-share/";
             quiz.arrShareButtons.eq(1).attr({
-                "onclick": "var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + strPageURL + "&picture=" + quiz.objData[quiz.currentQuiz].params[0].base_path + "fb-post.jpg&name=" + strShareHead + "&description=" + strShareChatter + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
+                "onclick": "var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + strPageURL + "&picture=" + quiz.objData[quiz.currentQuiz].params[0].base_path + "fb-post.jpg&name=" + strShareHead + "&description=" + strShareChatter + "&redirect_uri=" + strFBURL + "','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
             });
             quiz.arrShareButtons.eq(0).attr({
                 "onclick": "window.open('https://twitter.com/intent/tweet?url=" + strPageURL + "&text=" + strShareHead + ": " + strShareChatter + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');void(0);"
@@ -398,15 +399,16 @@ define(
                 }
             });
 
-            var strShareHead, strShareChatter;
+            var strShareHead, strShareChatter, strFBURL;
             var strPageURL = document.location.href;
             strShareHead = quiz.arrShareTitles[quiz.currentQuiz];
             strShareChatter = strShareText;
             strShareHead = strShareHead.replace("'", "\\'");
             strShareChatter = strShareChatter.replace("'", "\\'");
             strPageURL = strPageURL.replace("#", "%23");
+            strFBURL = "http://" + document.location.host + "/pages/interactives/fb-share/";
             quiz.arrShareButtons.eq(1).attr({
-                "onclick": "var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + strPageURL + "&picture=" + quiz.objData[quiz.currentQuiz].params[0].base_path + "fb-post.jpg&name=" + strShareHead + "&description=" + strShareChatter + "&redirect_uri=http://usatoday30.usatoday.com/_common/_dialogs/fb-share-done.html','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
+                "onclick": "var sTop=window.screen.height/2-(218);var sLeft=window.screen.width/2-(313);window.open('https://www.facebook.com/dialog/feed?display=popup&app_id=" + quiz.fbAppId + "&link=" + strPageURL + "&picture=" + quiz.objData[quiz.currentQuiz].params[0].base_path + "fb-post.jpg&name=" + strShareHead + "&description=" + strShareChatter + "&redirect_uri=" + strFBURL + "','sharer','toolbar=0,status=0,width=580,height=400,top='+sTop+',left='+sLeft);void(0);"
             });
             quiz.arrShareButtons.eq(0).attr({
                 "onclick": "window.open('https://twitter.com/intent/tweet?url=" + strPageURL + "&text=" + strShareChatter + "&via=usatoday', 'twitterwindow', 'height=450, width=550, top=200, left=200, toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');void(0);"
