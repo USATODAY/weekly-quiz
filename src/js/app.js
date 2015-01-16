@@ -480,7 +480,7 @@ define(
             }
             if (winWidth > 540) {
                 quiz.objBG.css({
-                    'background': 'url(' + quiz.strBackgroundURL + ') no-repeat center center fixed'
+                    'background': 'url(http://www.gannett-cdn.com/static/usat-web-static-746.0/images/patterns/noise_f6f6f6.png) top left #f6f6f6'
                 });
             }
             /*if (quiz.platform === "desktop") {
