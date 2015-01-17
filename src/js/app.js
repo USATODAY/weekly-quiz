@@ -368,7 +368,7 @@ define(
         quiz.renderQuestion = function() {
             quiz.objImagePanel.addClass("blur");
             quiz.objQuestionContent.removeClass("upcoming").addClass("active");
-            quiz.arrAnswers.click(function(e) {
+            quiz.arrAnswers.one("click", function(e) {
                 quiz.renderAnswer(quiz.arrAnswers.index(this));
             });
         };
