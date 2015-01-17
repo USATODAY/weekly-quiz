@@ -61,6 +61,8 @@ body {
         font-family: "Futura Today Light", Arial, sans-serif;
         font-size: 1.2rem;
         line-height: 1em; 
+        max-width: 80%;
+        margin: 0 auto;
         @media (max-width: 414px) {
           font-size: 0.8rem;
         }
