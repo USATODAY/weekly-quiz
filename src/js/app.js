@@ -392,9 +392,14 @@ define(
         quiz.renderResults = function() {
             var strResultsText, strShareText;
             jQuery.each(quiz.arrResultsRange, function(rindex) {
-                if (quiz.arrNumQuizCorrect[quiz.currentQuiz] <= quiz.arrResultsRange[rindex]) {
-                    strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[rindex] + "</p></div>";
-                    strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[rindex];
+                if ((quiz.arrNumQuizCorrect[quiz.currentQuiz] <= quiz.arrResultsRange[rindex]) || (quiz.arrNumQuizCorrect[quiz.currentQuiz] >= quiz.arrResultsRange[quiz.arrResultsRange.length - 1])) {
+                    if (quiz.arrNumQuizCorrect[quiz.currentQuiz] <= quiz.arrResultsRange[rindex]) {
+                        strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[rindex] + "</p></div>";
+                        strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[rindex];
+                    } else {
+                        strResultsText = "<div class='results-text-inner-wrap'><h3 class='result-header'>You got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct!</h3> <p>" + quiz.arrResultsText[quiz.arrResultsRange.length - 1] + "</p></div>";
+                        strShareText = "I got " + quiz.arrNumQuizCorrect[quiz.currentQuiz].toString() + " out of " + quiz.arrNumQuizQuestions[quiz.currentQuiz].toString() + " correct! " + quiz.arrResultsShare[quiz.arrResultsRange.length - 1];
+                    }
                     return false;
                 }
             });
