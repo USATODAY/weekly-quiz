@@ -35,6 +35,7 @@ define(
             quiz.strBackgroundURL = "";
             quiz.staticInfo = [];
             quiz.staticSection = jQuery(".staticinfo");
+            quiz.blnIsSingle = false;
             if (quiz.staticSection.length > 0) {
                 quiz.staticInfo = JSON.parse(quiz.staticSection.html());
             } else {
@@ -96,6 +97,9 @@ define(
             } else {
                 jQuery.getJSON('data/data.json', function(data) {
                     quiz.objData = data;
+                    if (data[0].params[0].single_image_quiz == "true") {
+                        quiz.blnIsSingle = true;
+                    }
                     quiz.renderQuiz();
                     window.setTimeout(function() {
                         $(".preloader-mobile").eq(0).fadeOut(500);
@@ -131,8 +135,13 @@ define(
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
                 strHTMLQuizzes += '    <div class="question-progress-bar"><div class="question-progress-inner" style="transform: scaleX(0);"></div></div>';
+                if (quiz.blnIsSingle) {
+                    strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
+                }
                 strHTMLQuizzes += '    <div class="quiz-intro active">';
-                strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
+                if (!quiz.blnIsSingle) {
+                    strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
+                }
                 strHTMLQuizzes += '        <div class="intro-label">';
                 strHTMLQuizzes += '            <h2>' + quiz.objData[index].params[0].label + '</h2>';
                 strHTMLQuizzes += '        </div>';
@@ -172,7 +181,9 @@ define(
                     });
                     strHTMLQuizzes += '            </div>';
                     strHTMLQuizzes += '        </div>';
+                    if (!quiz.blnIsSingle) {
                     strHTMLQuizzes += '        <div class="question-image"><div class="img-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[qindex].image + '" /></div>';
+                    }
                     strHTMLQuizzes += '    </div>';
 
                 });
