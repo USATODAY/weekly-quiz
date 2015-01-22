@@ -40,7 +40,7 @@ body {
       left: 50%;
       position: absolute;
       text-align: center;
-      top: 40%;
+      top: 30%;
       transform: translate(-50%, -50%);
       width: 300px;
       .label-inner-wrap {
@@ -54,8 +54,8 @@ body {
         line-height: 1em;
       }
       @media (max-width: 414px) {
-        height: 200px;
-        width: 200px;
+        height: 250px;
+        width: 250px;
       }
       p {
         font-family: "Futura Today Light", Arial, sans-serif;
