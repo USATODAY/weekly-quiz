@@ -19,6 +19,7 @@ html, body, .transition-wrap,  article.padded-container, .non-article-content { 
 footer { display: none !important;}
 
 article {
+  height: 100% !important;
   padding: 0 !important;
   width: 100%;
 }
@@ -67,6 +68,7 @@ quiz layout styles
   max-width: 540px;
   overflow: hidden;
   position: relative;
+  z-index: 3;
 }
 
 .quiz-intro {
@@ -101,7 +103,13 @@ quiz layout styles
   }
 }
 
-.intro-image, .question-image {
+.single-image {
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.intro-image, .question-image, .single-image {
   height: 100%;
   z-index: -1;
   img {

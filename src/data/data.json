@@ -1,774 +1,335 @@
 [
-    {
-        "background": "bg-news.jpg",
-        "section": "all",
-        "quiz_num": "1",
-        "params": [
-            {
-                "start_back": "",
-                "background": "2-background.jpg",
-                "title": "Could you pass the U.S. citizenship test?",
-                "sponsor_text": "",
-                "sponsor_photo": "2-background.jpg",
-                "label": "U.S. citizenship test",
-                "generic_share": "Here are 25 sample questions provided by the U.S. Citizenship and Immigration Services.",
-                "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/news/civics-quiz/",
-                "sub_label": "Can you pass the government's sample test?"
-            }
+  {
+    "section": "all",
+    "background": "bg-news.jpg",
+    "questions": [
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "Who gave the first in-person State of the Union?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "Thomas Jefferson",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "James Madison",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "John Adams",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "George Washington",
+            "correct": "x"
+          }
         ],
-        "results": [
-            {
-                "share_text": "OK, it's time for you to go back to Kindergarten.",
-                "text": "Could you even find America on a map?",
-                "range": "5"
-            },
-            {
-                "share_text": "Time to crack open a history book.",
-                "text": "You would not pass a U.S. citizen test.",
-                "range": "10"
-            },
-            {
-                "share_text": "We highly recommend getting to know the U-S-A a little better.",
-                "text": "Sure, you passed -- but barely!",
-                "range": "15"
-            },
-            {
-                "share_text": "Well done. If you faced this test, you'd do just fine.",
-                "text": "Congratulations, you know your U.S. history.",
-                "range": "20"
-            },
-            {
-                "share_text": "You are a professor of U.S. history!",
-                "text": "Have you considered a presidential bid?",
-                "range": "24"
-            }
+        "type": "multi-text",
+        "q_id": "1"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "Who submitted the first written State of the Union address?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "John Adams",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "John Quincy Adams",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Thomas Jefferson",
+            "correct": "x"
+          },
+          {
+            "image": "",
+            "answer": "James Monroe",
+            "correct": ""
+          }
         ],
-        "questions": [
-            {
-                "section": "news",
-                "q_id": "1",
-                "answers": [
-                    {
-                        "answer": "Create an army",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Provide schooling and education",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Coin or print money",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Make treaties",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "1-background.jpg",
-                "value": "Under our Constitution, some powers belong to the states. What is one power of the states?"
-            },
-            {
-                "section": "news",
-                "q_id": "2",
-                "answers": [
-                    {
-                        "answer": "President Pro Tempore",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Speaker of the House",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "President",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Vice President",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "2-background.jpg",
-                "value": "Who vetoes bills?"
-            },
-            {
-                "section": "news",
-                "q_id": "3",
-                "answers": [
-                    {
-                        "answer": "Cherokee",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Slavs",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Zawi Chemi",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Celts",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "3-background.jpg",
-                "value": "Name one American Indian tribe in the United States."
-            },
-            {
-                "section": "news",
-                "q_id": "4",
-                "answers": [
-                    {
-                        "answer": "Herbert Hoover",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Calvin Coolidge",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Harry Truman",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Franklin Roosevelt",
-                        "image": "",
-                        "correct": "x"
-                    }
-                ],
-                "type": "multi-text",
-                "image": "4-background.jpg",
-                "value": "Who was president during the Great Depression and World War II?"
-            },
-            {
-                "section": "news",
-                "q_id": "5",
-                "answers": [
-                    {
-                        "answer": "You can practice any religion, or not practice a religion.",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "No one can practice a religion.",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "You can't choose the time you practice your religion.",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "You must choose a religion.",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "5-background.jpg",
-                "value": "What is freedom of religion?"
-            },
-            {
-                "section": "news",
-                "q_id": "6",
-                "answers": [
-                    {
-                        "answer": "11",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "9",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "10",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "12",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "6-background.jpg",
-                "value": "How many justices are on the Supreme Court?"
-            },
-            {
-                "section": "news",
-                "q_id": "7",
-                "answers": [
-                    {
-                        "answer": "The Virginia Declaration of Rights was written.",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "The Emancipation Proclamation was written.",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "The Constitution was written.",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "The Declaration of Independence was written.",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "7-background.jpg",
-                "value": "What happened at the Constitutional Convention?"
-            },
-            {
-                "section": "news",
-                "q_id": "8",
-                "answers": [
-                    {
-                        "answer": "The Star-Spangled Banner",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "God Bless the U.S.A.",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "My Country 'Tis of Thee",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "America the Beautiful",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "8-background.jpg",
-                "value": "What is the name of the national anthem?"
-            },
-            {
-                "section": "news",
-                "q_id": "9",
-                "answers": [
-                    {
-                        "answer": "Freedom of worship and freedom to make treaties with other countries",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Freedom of speech and freedom to run for president",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Freedom to petition the government and freedom to disobey traffic laws",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Freedom of speech and freedom of worship",
-                        "image": "",
-                        "correct": "x"
-                    }
-                ],
-                "type": "multi-text",
-                "image": "9-background.jpg",
-                "value": "What are two rights of everyone living in the United States?"
-            },
-            {
-                "section": "news",
-                "q_id": "10",
-                "answers": [
-                    {
-                        "answer": "George Washington",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "James Madison",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "John Adams",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Thomas Jefferson",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "10-background.jpg",
-                "value": "The Federalist Papers supported the passage of the U.S. Constitution. Name one of the writers."
-            },
-            {
-                "section": "news",
-                "q_id": "11",
-                "answers": [
-                    {
-                        "answer": "The first woman elected to the House of Representatives",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Founded the Red Cross",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Made the first flag of the United States",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Fought for women's rights",
-                        "image": "",
-                        "correct": "x"
-                    }
-                ],
-                "type": "multi-text",
-                "image": "11-background.jpg",
-                "value": "What did Susan B. Anthony do?"
-            },
-            {
-                "section": "news",
-                "q_id": "12",
-                "answers": [
-                    {
-                        "answer": "16",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "18",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "35",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "21",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "12-background.jpg",
-                "value": "How old do citizens have to be to vote for president?"
-            },
-            {
-                "section": "news",
-                "q_id": "13",
-                "answers": [
-                    {
-                        "answer": "The inalienable rights",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "The Declaration of Independence",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "The Articles of Confederation",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "The Bill of Rights",
-                        "image": "",
-                        "correct": "x"
-                    }
-                ],
-                "type": "multi-text",
-                "image": "13-background.jpg",
-                "value": "What do we call the first 10 amendments to the Constitution?"
-            },
-            {
-                "section": "news",
-                "q_id": "14",
-                "answers": [
-                    {
-                        "answer": "Atlantic Ocean",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Indian Ocean",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Pacific Ocean",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Arctic Ocean",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "14-background.jpg",
-                "value": "What ocean is on the East Coast of the United States?"
-            },
-            {
-                "section": "news",
-                "q_id": "15",
-                "answers": [
-                    {
-                        "answer": "Speaker of the House",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Secretary of State",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Vice President",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "President Pro Tempore",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "15-background.jpg",
-                "value": "If the president can no longer serve, who becomes president?"
-            },
-            {
-                "section": "news",
-                "q_id": "16",
-                "answers": [
-                    {
-                        "answer": "Canadians",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Floridians",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "No one",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "American Indians",
-                        "image": "",
-                        "correct": "x"
-                    }
-                ],
-                "type": "multi-text",
-                "image": "16-background.jpg",
-                "value": "Who lived in America before the Europeans arrived?"
-            },
-            {
-                "section": "news",
-                "q_id": "17",
-                "answers": [
-                    {
-                        "answer": "Secretary of Weather and Secretary of Energy",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Secretary of the Interior and Secretary of History",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Secretary of Homeland Security and Secretary of the Treasury",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Secretary of Health and Human Services and Secretary of the Navy",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "17-background.jpg",
-                "value": "What are two Cabinet-level positions?"
-            },
-            {
-                "section": "news",
-                "q_id": "18",
-                "answers": [
-                    {
-                        "answer": "Only the people in the state who voted for the senator",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "All people of the state",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "The state legislatures",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "All people of the state who belong to the senator's political party",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "18-background.jpg",
-                "value": "Who does a U.S. senator represent?"
-            },
-            {
-                "section": "news",
-                "q_id": "19",
-                "answers": [
-                    {
-                        "answer": "Legislative",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "State government",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Parliament",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "United Nations",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "19-background.jpg",
-                "value": "Name one branch or part of the government."
-            },
-            {
-                "section": "news",
-                "q_id": "20",
-                "answers": [
-                    {
-                        "answer": "Revolutionary War",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "World War I",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "The War of 1812",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Civil War",
-                        "image": "",
-                        "correct": "x"
-                    }
-                ],
-                "type": "multi-text",
-                "image": "20-background.jpg",
-                "value": "Name the U.S. war between the North and the South."
-            },
-            {
-                "section": "news",
-                "q_id": "21",
-                "answers": [
-                    {
-                        "answer": "Arkansas",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Florida",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "California",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Alabama",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "21-background.jpg",
-                "value": "Name one state that borders Mexico."
-            },
-            {
-                "section": "news",
-                "q_id": "22",
-                "answers": [
-                    {
-                        "answer": "Prime Minister",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Chief Justice",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Speaker of the House",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "President",
-                        "image": "",
-                        "correct": "x"
-                    }
-                ],
-                "type": "multi-text",
-                "image": "22-background.jpg",
-                "value": "Who is in charge of the executive branch?"
-            },
-            {
-                "section": "news",
-                "q_id": "23",
-                "answers": [
-                    {
-                        "answer": "To provide police departments",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "To issue driver's licenses",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "To make treaties",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "To provide schooling",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "23-background.jpg",
-                "value": "Under our Constitution, some powers belong to the federal government. What is one power of the federal government?"
-            },
-            {
-                "section": "news",
-                "q_id": "24",
-                "answers": [
-                    {
-                        "answer": "American and Bull-Moose",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Reform and Green",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Democrat and Republican",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Democrat-Republican and Whigs",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "24-background.jpg",
-                "value": "What are the two major political parties in the United States?"
-            },
-            {
-                "section": "news",
-                "q_id": "25",
-                "answers": [
-                    {
-                        "answer": "Washington, D.C.",
-                        "image": "",
-                        "correct": "x"
-                    },
-                    {
-                        "answer": "Philadelphia",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "Boston",
-                        "image": "",
-                        "correct": ""
-                    },
-                    {
-                        "answer": "New York City",
-                        "image": "",
-                        "correct": ""
-                    }
-                ],
-                "type": "multi-text",
-                "image": "25-background.jpg",
-                "value": "What is the capital of the United States?"
-            }
-        ]
-    }
+        "type": "multi-text",
+        "q_id": "2"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "What famous principle did President James Monroe articulate in his 1823 speech?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "The Power of Friendship Doctrine",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "The Monroe Doctrine",
+            "correct": "x"
+          },
+          {
+            "image": "",
+            "answer": "The Declaration of Independence",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "The U.S. Constitution",
+            "correct": ""
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "3"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "James Polk disclosed what discovery in his 1848 address?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "Telephone lines",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Sugar cane",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Gold",
+            "correct": "x"
+          },
+          {
+            "image": "",
+            "answer": "Electricity",
+            "correct": ""
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "4"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "What phrase did Abe Lincoln use to describe the Civil War in an 1862 message?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "\"These trying times\"",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "\"The war that divides us\"",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "\"This fiery trial\"",
+            "correct": "x"
+          },
+          {
+            "image": "",
+            "answer": "\"The terrible tragedy of our now\"",
+            "correct": ""
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "5"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "Which president resumed the practice of giving the State of Union in person?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "Theodore Roosevelt",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Woodrow Wilson",
+            "correct": "x"
+          },
+          {
+            "image": "",
+            "answer": "William Howard Taft",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "It was always done in person. Duh!",
+            "correct": ""
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "6"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "What was the name given to the global goals that Franklin Roosevelt spelled out in his 1941 State of the Union?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "\"The Short List\"",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "\"Keys To a Successful Future\"",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "\"New Deal\"",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "\"The Four Freedoms\"",
+            "correct": "x"
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "7"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "Who gave the first televised State of the Union?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "Lyndon B. Johnson",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "John F. Kennedy",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Harry S. Truman",
+            "correct": "x"
+          },
+          {
+            "image": "",
+            "answer": "Dwight D. Eisenhower",
+            "correct": ""
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "8"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "Which president began the tradition of introducing special guests in the audience?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "George Washington, his dog",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Jimmy Carter, Jonathan Nash",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Gerald Ford, a resigned Richard Nixon",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "Ronald Reagan, Lenny Skutnick",
+            "correct": "x"
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "9"
+      },
+      {
+        "section": "news",
+        "image": "capitol.jpg",
+        "value": "Bill Clinton gave his 1998 State of the Union shortly after news broke about what?",
+        "answers": [
+          {
+            "image": "",
+            "answer": "Bill Clinton's impeachment hearings",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "The Monica Lewinsky sex scandal",
+            "correct": "x"
+          },
+          {
+            "image": "",
+            "answer": "Hillary Clinton's pregnancy ",
+            "correct": ""
+          },
+          {
+            "image": "",
+            "answer": "<i>Titanic</i>'s record Oscar win",
+            "correct": ""
+          }
+        ],
+        "type": "multi-text",
+        "q_id": "10"
+      }
+    ],
+    "params": [
+      {
+        "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/news/test_your_state_of_the_union_knowledge/",
+        "sponsor_text": "",
+        "background": "capitol.jpg",
+        "title": "Test your State of the Union knowledge",
+        "sponsor_photo": "",
+        "generic_share": "Just ahead of President Obama's latest State of the Union address, we challenge you to test how much you know about the historial speech's history. ",
+        "start_back": "main-background.jpg",
+        "sub_label": "Test your knowledge",
+        "label": "State of the Union",
+        "single_image_quiz": "TRUE"
+      }
+    ],
+    "quiz_num": "1",
+    "results": [
+      {
+        "share_text": "Clearly, I'm not a presidential scholar. How'd you do?",
+        "range": "1",
+        "text": "Yikes, you didn't even make it through the primaries. Try again."
+      },
+      {
+        "share_text": "Time to close my Netflix screen and read a little. What's your score?",
+        "range": "4",
+        "text": "Someone slept through history class. You might want to crack open that old textbook."
+      },
+      {
+        "share_text": "So close, yet so far. At least I'm not as bad as the other guys. Try this quiz.",
+        "range": "7",
+        "text": "Not bad, but you're not winning an election anytime soon. "
+      },
+      {
+        "share_text": "I'm pretty much POTUS. Think you can top me? ",
+        "range": "10",
+        "text": "You'e basically president-elect. Way to go, commander in chief."
+      }
+    ]
+  }
 ]
