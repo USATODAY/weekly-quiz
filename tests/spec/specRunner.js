@@ -41,7 +41,7 @@ require.config({
 
     // Load the specs
     require(['../spec/mainSpec'] , function (spec) {
-      console.log(spec);
+     
       // Initialize the HTML Reporter and execute the environment (setup by `boot.js`)
       window.onload()
     });
