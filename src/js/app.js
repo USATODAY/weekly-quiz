@@ -89,6 +89,10 @@ define(
 
                 jQuery.getJSON("http://" + hostname + "/services/webproxy/?url=" + strURL, function(data) {
                     quiz.objData = data;
+                    if (data[0].params[0].single_image_quiz == "TRUE") {
+                        quiz.blnIsSingle = true;
+                        console.log("single = true");
+                    }
                     quiz.renderQuiz();
                     window.setTimeout(function() {
                         $(".preloader-mobile").eq(0).fadeOut(500);
@@ -99,6 +103,7 @@ define(
                     quiz.objData = data;
                     if (data[0].params[0].single_image_quiz == "TRUE") {
                         quiz.blnIsSingle = true;
+                        console.log("single = true");
                     }
                     quiz.renderQuiz();
                     window.setTimeout(function() {
