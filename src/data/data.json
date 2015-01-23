@@ -305,7 +305,7 @@
         "start_back": "main-background.jpg",
         "sub_label": "Test your knowledge",
         "label": "State of the Union",
-        "single_image_quiz": "true"
+        "single_image_quiz": "TRUE"
       }
     ],
     "quiz_num": "1",

@@ -97,7 +97,7 @@ define(
             } else {
                 jQuery.getJSON('data/data.json', function(data) {
                     quiz.objData = data;
-                    if (data[0].params[0].single_image_quiz == "true") {
+                    if (data[0].params[0].single_image_quiz == "TRUE") {
                         quiz.blnIsSingle = true;
                     }
                     quiz.renderQuiz();
@@ -128,16 +128,16 @@ define(
 
             jQuery.each(quiz.objData, function(index) {
                 strHTMLIntro += '<div class="intro-panel" style="height: ' + (100 / quiz.numTotalQuizzes).toString() + '%;">';
+                if (!quiz.blnIsSingle) {
                 strHTMLIntro += '    <div class="background"><div class="intro-background-overlay"></div><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].params[0].background + '" /></div>';
+                }
                 strHTMLIntro += '    <div class="label"><div class="label-inner-wrap"><h3>' + quiz.objData[index].params[0].label + '</h3>';
                 strHTMLIntro += '    <p class="sub-label">' + quiz.objData[index].params[0].sub_label + '</p></div></div>';
                 strHTMLIntro += '</div>';
 
                 strHTMLQuizzes += '<div class="quiz ' + quiz.objData[index].section + ' upcoming">';
                 strHTMLQuizzes += '    <div class="question-progress-bar"><div class="question-progress-inner" style="transform: scaleX(0);"></div></div>';
-                if (quiz.blnIsSingle) {
-                    strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
-                }
+                
                 strHTMLQuizzes += '    <div class="quiz-intro active">';
                 if (!quiz.blnIsSingle) {
                     strHTMLQuizzes += '        <div class="intro-image"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[quiz.objData[index].questions.length - 1].image + '" /></div>';
@@ -198,6 +198,11 @@ define(
 
                 strHTMLQuizzes += '</div>';
             });
+
+            if (quiz.blnIsSingle) {
+                strHTMLQuizzes += '        <div class="single-image"><img src="' + quiz.objData[0].params[0].base_path + quiz.objData[0].questions[0].image + '" /></div>';
+            } 
+           
             strHTMLIntro += '</div>';
             quiz.objQuizContainer.append(strHTMLIntro + strHTMLQuizzes);
 
@@ -222,11 +227,11 @@ define(
             quiz.arrShareCloseButtons = jQuery(".share-close-button");
             
             quiz.arrProgressBars = jQuery(".question-progress-inner");
-            quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").find("img");
+            quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".single-image").find("img");
             if (quiz.numTotalQuizzes < 2) {
                 quiz.arrShareButtons = quiz.arrQuizResults.eq(0).find("a");
                 
-                quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".intro-panel").find("img");
+                quiz.arrFullImgs = jQuery(".question-image").add(".intro-image").add(".intro-panel").add(".single-image").find("img");
                 quiz.objQuizContainer.addClass("single");
                 quiz.arrQuizIntros.removeClass("active").addClass("done");
                 quiz.objMainIntro.append("<div class='play-button'><h3>Play</h3></div>");
@@ -319,6 +324,9 @@ define(
         };
 
         quiz.startQuiz = function() {
+            if (quiz.blnIsSingle) {
+                $(".single-image").addClass("blur");
+            }
             var strShareHead, strShareChatter, strFBURL;
             var strPageURL = document.location.href;
             quiz.arrQuestions = quiz.arrQuizzes.eq(quiz.currentQuiz).find(".question-panel");
@@ -378,6 +386,7 @@ define(
 
         quiz.renderQuestion = function() {
             quiz.objImagePanel.addClass("blur");
+
             quiz.objQuestionContent.removeClass("upcoming").addClass("active");
             quiz.arrAnswers.one("click", function(e) {
                 quiz.renderAnswer(quiz.arrAnswers.index(this));
