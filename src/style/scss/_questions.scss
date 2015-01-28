@@ -276,9 +276,16 @@ progress bar
 .question-progress-bar {
   background-color: $dark-grey;
   height: $selected-border-width;
+  opacity: 0;
   position: relative;
+  transition: opacity 250ms ease;
+  transition-delay: 1.5s;
   width: 100%;
   z-index: 2;
+}
+
+.quiz.active .question-progress-bar {
+  opacity: 1;
 }
 
 .question-progress-inner {
