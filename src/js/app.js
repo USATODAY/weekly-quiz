@@ -199,6 +199,9 @@ define(
                 strHTMLQuizzes += '        <div class="social-buttons"> <a href="" class="social-link" id="twitter-share"> <img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/twitter.svg" alt="twitter" class="social-icon"></a>';
                 strHTMLQuizzes += '        <a href="" class="social-link"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/fb.svg" alt="twitter" class="social-icon"></a>';
                 strHTMLQuizzes += '        <a href="" class="social-link" id="email-share"><img src="http://www.gannett-cdn.com/experiments/usatoday/2014/12/year-end-quiz/img/email.svg" alt="email" class="social-icon"></a></div>';
+                if (quiz.objData[index].params[0].credit) {
+                    strHTMLQuizzes += '        <div class="credit">' + quiz.objData[index].params[0].credit + '</div>';
+                }
                 strHTMLQuizzes += '    </div>';
 
                 strHTMLQuizzes += '</div>';
