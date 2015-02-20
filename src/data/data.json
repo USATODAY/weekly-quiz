@@ -4,7 +4,7 @@
     "background": "bg-news.jpg",
     "questions": [
       {
-        "section": "weather",
+        "section": "news",
         "image": "capitol.jpg",
         "value": "Which president resumed the practice of giving the State of Union in person?",
         "answers": [
@@ -33,7 +33,7 @@
         "q_id": "6"
       },
       {
-        "section": "travel",
+        "section": "news",
         "image": "capitol.jpg",
         "value": "What was the name given to the global goals that Franklin Roosevelt spelled out in his 1941 State of the Union?",
         "answers": [
