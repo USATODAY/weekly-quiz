@@ -30,6 +30,12 @@ $selected-border-width: 8px;
   }
 }
 
+/******
+
+section colors for questions
+
+******/
+
 .life {
   &.true-false, &.multi-text {
     .answer { 
@@ -104,6 +110,42 @@ $selected-border-width: 8px;
   &.multi-photo .selected .image-wrap { border: solid $selected-border-width $green;}
   .answer-response-image { border: solid 5px $green; fill: $green; }
 }
+
+.weather {
+  &.true-false, &.multi-text {
+     .answer { 
+      @include weather-bg(0.5); 
+      &.selected {
+        @include weather-bg(1); 
+      }
+    }
+  }
+  .quiz-share-button {@include weather-bg(0.3);}
+  @include question-border($yellow);
+  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $yellow;}
+  .answer-response-image { border: solid 5px $yellow; fill: $yellow; }
+}
+
+.travel {
+  &.true-false, &.multi-text {
+     .answer { 
+      @include travel-bg(0.5); 
+      &.selected {
+        @include travel-bg(1); 
+      }
+    }
+  }
+  .quiz-share-button {@include travel-bg(0.3);}
+  @include question-border($teal);
+  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $teal;}
+  .answer-response-image { border: solid 5px $teal; fill: $teal; }
+}
+
+/******
+
+answer types
+
+******/
 
 .true-false .answer {
   
@@ -300,4 +342,6 @@ progress bar
   &.life { background-color: $purple;}
   &.money { background-color: $green;}
   &.tech { background-color: $orange;}
+  &.weather { background-color: $yellow;}
+  &.travel { background-color: $teal;}
 }
