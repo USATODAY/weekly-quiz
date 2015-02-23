@@ -1,5 +1,5 @@
 # don't commit changes to data
-src/data.json
+src/data/data.json
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
