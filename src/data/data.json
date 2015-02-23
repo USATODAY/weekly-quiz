@@ -9,27 +9,17 @@
         "value": "Which president resumed the practice of giving the State of Union in person?",
         "answers": [
           {
-            "image": "",
-            "answer": "Theodore Roosevelt",
-            "correct": ""
-          },
-          {
-            "image": "",
-            "answer": "Woodrow Wilson",
+            "image": "test.jpg",
+            "answer": "William Howard Taft",
             "correct": "x"
           },
           {
-            "image": "",
-            "answer": "William Howard Taft",
-            "correct": ""
-          },
-          {
-            "image": "",
+            "image": "test.jpg",
             "answer": "It was always done in person. Duh!",
             "correct": ""
           }
         ],
-        "type": "multi-text",
+        "type": "large-image",
         "q_id": "6"
       },
       {
@@ -151,7 +141,7 @@
     ],
     "params": [
       {
-        "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/news/test_your_state_of_the_union_knowledge/",
+        "base_path": "http://www.gannett-cdn.com/experiments/usatoday/2015/quizzes/news/test/",
         "sponsor_text": "",
         "background": "capitol.jpg",
         "title": "Test your State of the Union knowledge",
