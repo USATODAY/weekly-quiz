@@ -47,7 +47,7 @@ section colors for questions
   }
   .quiz-share-button {@include life-bg(0.3);}
   @include question-border($purple);
-  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $purple;}
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $purple;}
   .answer-response-image { border: solid 5px $purple; fill: $purple; }
 }
 
@@ -62,7 +62,7 @@ section colors for questions
   }
   .quiz-share-button {@include news-bg(0.3);}
   @include question-border($blue);
-  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $blue;}
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $blue;}
   .answer-response-image { border: solid 5px $blue; fill: $blue; }
 }
 
@@ -77,7 +77,7 @@ section colors for questions
   }
   .quiz-share-button {@include sports-bg(0.3);}
   @include question-border($red);
-  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $red;}
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $red;}
   .answer-response-image { border: solid 5px $red; fill: $red; }
 }
 
@@ -92,7 +92,7 @@ section colors for questions
   }
   .quiz-share-button {@include tech-bg(0.3);}
   @include question-border($orange);
-  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $orange;}
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $orange;}
   .answer-response-image { border: solid 5px $orange; fill: $orange; }
 }
 
@@ -107,7 +107,7 @@ section colors for questions
   }
   .quiz-share-button {@include money-bg(0.3);}
   @include question-border($green);
-  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $green;}
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap  { border: solid $selected-border-width $green;}
   .answer-response-image { border: solid 5px $green; fill: $green; }
 }
 
@@ -122,7 +122,7 @@ section colors for questions
   }
   .quiz-share-button {@include weather-bg(0.3);}
   @include question-border($yellow);
-  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $yellow;}
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap { border: solid $selected-border-width $yellow;}
   .answer-response-image { border: solid 5px $yellow; fill: $yellow; }
 }
 
@@ -137,7 +137,7 @@ section colors for questions
   }
   .quiz-share-button {@include travel-bg(0.3);}
   @include question-border($teal);
-  &.multi-photo .selected .image-wrap { border: solid $selected-border-width $teal;}
+  &.multi-photo .selected .image-wrap, &.large-image .selected .image-wrap  { border: solid $selected-border-width $teal;}
   .answer-response-image { border: solid 5px $teal; fill: $teal; }
 }
 
@@ -212,6 +212,52 @@ answer types
       clear: left;
     }
   }
+}
+
+.large-image {
+    .question-buttons {
+        @extend .group; 
+        margin: 0 auto;
+        margin-top: 2em;
+        width: 90%;
+    }
+    .answer {
+        float: left;
+        position: relative;
+        width: 48%;
+        &:nth-child(1) {
+            margin-right: 2%
+        }
+        img {
+            display: block;
+            width: 100%;
+        }
+        .answer-text {
+            display: inline-block;
+            text-align: center;
+            width: 100%
+        }
+    }
+
+    .image-wrap {
+        border: solid $selected-border-width rgba(255, 255, 255, 0);
+        border-radius: 5px;
+        margin: 0 auto;
+        overflow: hidden;
+        transition: border 250ms ease;
+    }
+
+
+    .answer-response-image {
+        right: -24px;
+        top: -24px;
+        z-index: 20;
+        @media (max-width: 400px) {
+            right: -16px;
+            top: -16px;
+        }
+    }
+
 }
 
 .img-overlay {
