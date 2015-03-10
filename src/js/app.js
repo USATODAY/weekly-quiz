@@ -172,7 +172,7 @@ define(
                         if (quiz.objData[index].questions[qindex].answers[aindex].image !== "") {
                             strHTMLQuizzes += '                <div class="outer-image-wrap"><div class="image-wrap"><img src="' + quiz.objData[index].params[0].base_path + quiz.objData[index].questions[qindex].answers[aindex].image + '" /></div>';
                         }
-                        if (quiz.objData[index].questions[qindex].answers[aindex].correct == "x") {
+                        if (quiz.objData[index].questions[qindex].answers[aindex].correct.toLowerCase() == "x") {
                             strHTMLQuizzes += '                <div class="answer-response-image correct">' + strSVGCheck + '</div>';
                         } else {
                             strHTMLQuizzes += '                <div class="answer-response-image wrong">' + strSVGX + '</div>';
