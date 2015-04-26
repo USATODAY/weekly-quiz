@@ -64,6 +64,7 @@ define(
         quiz.dataHandler = function() {
             var strHash = document.location.hash;
             if ((strHash) && (strHash !== "") && (strHash !== "#")) {
+                strHash = strHash.substr(0, strHash.lastIndexOf("/") + 1);
                 var arrParams = strHash.split("/");
                 console.log(arrParams);
                 if (arrParams[0] === "#week") {
